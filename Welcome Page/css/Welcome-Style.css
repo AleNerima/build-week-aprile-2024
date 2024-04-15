@@ -1,9 +1,10 @@
+/****************formattazione generale**********************/
 *{
     box-sizing: border-box;
     font-family: sans-serif;
 }
 
-
+/*******************************formattazione testo***************************/
 body{
     text-align: left;
     position: absolute;
