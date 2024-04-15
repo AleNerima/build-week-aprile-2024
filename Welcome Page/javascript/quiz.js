@@ -1,7 +1,7 @@
-document.querySelector('#check1').addEventListener('change', function (){
+document.querySelector('#check').addEventListener('change', function (){
     let checkBottone= document.querySelector('#procedi');
     if(this.checked){
-        checkBottone.disable=false;
+        checkBottone.disabled=false;
         checkBottone.classList.remove('disabilitato_bottone');
         checkBottone.classList.add('buttons');
     }else{
@@ -10,3 +10,4 @@ document.querySelector('#check1').addEventListener('change', function (){
         checkBottone.classList.add('disabilitato_bottone');
     }
 })
+
