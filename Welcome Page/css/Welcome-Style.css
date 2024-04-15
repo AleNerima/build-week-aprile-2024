@@ -63,6 +63,20 @@ ul{
     box-shadow: 0px 0px 20px #00FFFF;
     font-size: larger;
     font-weight: bold;
+    cursor: pointer;
+}
+
+.disabilitato_bottone{
+    background-color: lightgray;
+    color: gray;
+    cursor: not-allowed;
+    font-size: larger;
+    font-weight: bold;
+    padding: 0.5em;
+    margin-left: 10%;
+    padding-left: 2.5em;
+    padding-right: 2.5em;
+    border:none;
 }
 
     
