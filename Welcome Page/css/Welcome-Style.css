@@ -3,19 +3,26 @@
     box-sizing: border-box;
     font-family: sans-serif;
 }
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
 /*******************************formattazione testo***************************/
 body{
+    background-image: url(../assets/bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+main{
     text-align: left;
     position: absolute;
     top: 50%;
     left: 40%;
     transform: translate(-50%, -50%);
-    background-image: url(../assets/bg.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
     color: white;
-    font-family: "Roboto", sans-serif;
+}
+img{
+    height: 2rem;
+    width: 8rem;
+    margin-top: 5em;
+    margin-left: 10em;
 }
 h1 {
     font-size: 5em;
@@ -23,19 +30,15 @@ h1 {
 h2 {
     color: rgb(178, 43, 137);
     font-size: 2em;
-    font-weight: 600;
     margin-bottom: 0;
-    padding: 30px 0 10px 0;
 }
 p{
     margin-top: 0;
-    padding: 5px 0 50px 0;
     font-size: 1.2em;
 }
 li{
     font-size: 1em;
     margin: 0.9%;
-    padding: 5px;
 }
 
 /******FORM*******/
@@ -50,7 +53,9 @@ li{
     box-shadow: 0px 0px 20px #00FFFF;
 }
 
-#check1 {
+#check1  {
     margin-right: 0.6em;
     display: inline;
-}
+    opacity: 0;
+    }
+    
