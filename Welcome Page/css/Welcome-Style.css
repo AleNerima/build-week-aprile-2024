@@ -74,7 +74,8 @@ ul{
     border: 2px solid white; 
     cursor: pointer; 
     float: left;
-    margin-right: 0.6em;
+    margin-right: 1em;
+    margin-top: 10px;
 }
 
 #check1 input[type="checkbox"]:checked {
