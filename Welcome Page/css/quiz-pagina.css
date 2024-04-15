@@ -53,8 +53,8 @@ header img{
 
 #next-btn{
     float: right;
-    width: 20em;
-    height: 4em;
+    width: 15em;
+    height: 3.5em;
     background: none;
     color: rgb(255, 255, 255, 0.7);
     border: 1px solid rgb(255, 255, 255, 0.7);
@@ -62,7 +62,13 @@ header img{
     cursor: pointer;
     font-size: 13px;
     font-weight: 600;
+    padding: 0;
 }
+
+#next-btn code {font-size: 19px;
+                font-weight: bold;
+}
+
 #next-btn:hover{
     background-color: blueviolet;
 }
