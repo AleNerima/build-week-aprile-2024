@@ -23,13 +23,13 @@ main{
 img{
     height: 2rem;
     width: 8rem;
-    margin-top: 5em;
+    margin-top: 1.8em;
     margin-left: 10em;
 }
 h1 {
     font-size: 5em;
     margin-bottom: 0.8em;
-    margin-top: 0.8em;
+    margin-top: 0.5em;
 }
 h2 {
     color: rgb(178, 43, 137);
@@ -39,7 +39,7 @@ h2 {
 p{
     margin-top: 0;
     font-size: 1.2em;
-    margin-bottom: 3em;
+    margin-bottom: 1.5em;
     line-height: 1.2;
 }
 li{
@@ -48,7 +48,7 @@ li{
     margin-left: 2em;
 }
 ul{
-    margin-bottom: 5em;
+    margin-bottom: 3em;
 }
 
 /******FORM*******/
