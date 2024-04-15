@@ -66,3 +66,7 @@ li{
     float: left;
     margin-right: 0.6em;
 }
+
+#check1 input[type="checkbox"]:checked {
+    background-color: #00ffff;
+  }
