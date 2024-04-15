@@ -5,6 +5,8 @@
 }
 
 /*******************************formattazione testo***************************/
+
+
 body{
     background-image: url(../assets/bg.jpg);
     background-repeat: no-repeat;
@@ -26,7 +28,8 @@ img{
 }
 h1 {
     font-size: 5em;
-    margin-bottom: 0.4em
+    margin-bottom: 0.8em;
+    margin-top: 0.8em;
 }
 h2 {
     color: rgb(178, 43, 137);
@@ -42,6 +45,9 @@ li{
     font-size: 1em;
     margin: 0.9%;
     margin-left: 2em;
+}
+ul{
+    margin-bottom: 5em;
 }
 
 /******FORM*******/
