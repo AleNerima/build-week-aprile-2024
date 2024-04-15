@@ -15,15 +15,20 @@ body{
 main{
     position: absolute;
     top: 50%;
-    left: 40%;
+    left: 48%;
     transform: translate(-50%, -50%);
     color: white;
 }
-img{
+header img{
     height: 2rem;
     width: 8rem;
     margin-top: 1.8em;
-    margin-left: 10em;
+    margin-left: 33em;
+}
+#app{
+    width: 90%;
+    margin: auto 5%;
+    align-items: center;
 }
 .btn:hover{
     background-color: transparent;
@@ -32,14 +37,15 @@ img{
 .btn{
     padding: 2em;
     font-size: 16px;
-    background-color: transparent;
+    background-color: rgb(211, 211, 211, 0.2);
     color: white;
     border-radius: 8em 8em 8em ;
     margin: 15px;
+    width: 28em;
 }
 
 #risposte{
-    width: 50em;
+    width: 70em;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -47,7 +53,7 @@ img{
 
 #next-btn{
     float: right;
-    width: 15em;
+    width: 20em;
     height: 4em;
     background: none;
     color: rgb(255, 255, 255, 0.7);
