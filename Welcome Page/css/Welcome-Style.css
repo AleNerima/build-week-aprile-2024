@@ -26,11 +26,12 @@ img{
 }
 h1 {
     font-size: 5em;
+    margin-bottom: 0.4em
 }
 h2 {
     color: rgb(178, 43, 137);
     font-size: 2em;
-    margin-bottom: 0;
+    margin-bottom: 0.4em;
 }
 p{
     margin-top: 0;
