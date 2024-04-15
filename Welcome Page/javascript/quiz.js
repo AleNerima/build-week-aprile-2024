@@ -1,3 +1,4 @@
+/****************************Pagina iniziale**************************************/
 const checkbox = document.getElementById('check');
 checkbox.addEventListener('change', function (){
     let button= document.getElementById('procedi');
@@ -18,3 +19,7 @@ document.getElementById('procedi').addEventListener('click', function (){
         window.location.href = "Quiz-Page.html";
     }
 });
+/***************************************Pagina quiz***********************************/
+/*************************costanti e variabili***********************************/
+/*********************************le nostre funzioni******************************************/
+/********************************************richiamo funzioni*******************************/
