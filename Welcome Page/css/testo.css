@@ -1,9 +1,9 @@
+/******************************* formattazione generale***************************/
 *{
     box-sizing: border-box;
     font-family: sans-serif;
 }
-
-
+/**** formattazione body testo*******/
 body{
     text-align: left;
     position: absolute;
