@@ -44,7 +44,10 @@ li{
     box-shadow: 0px 0px 20px #00FFFF;
 }
 
-#check1 {
+#check1  {
     margin-right: 0.6em;
     display: inline;
-}
+    opacity: 0;
+    
+    }
+    
