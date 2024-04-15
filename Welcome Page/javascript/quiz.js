@@ -11,3 +11,8 @@ document.querySelector('#check').addEventListener('change', function (){
     }
 })
 
+document.querySelector('#procedi').addEventListener('click', function (){
+    if (document.querySelector('#check').checked) {
+        window.location.href = "Quiz-Page.html";
+    }
+});
