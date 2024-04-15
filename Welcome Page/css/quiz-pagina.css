@@ -13,7 +13,6 @@ body{
     background-size: cover;
 }
 main{
-    text-align: left;
     position: absolute;
     top: 50%;
     left: 40%;
@@ -36,5 +35,28 @@ img{
     background-color: transparent;
     color: white;
     border-radius: 8em 8em 8em ;
-    
+    margin: 15px;
+}
+
+#risposte{
+    width: 50em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+#next-btn{
+    float: right;
+    width: 15em;
+    height: 4em;
+    background: none;
+    color: rgb(255, 255, 255, 0.7);
+    border: 1px solid rgb(255, 255, 255, 0.7);
+    margin: 20px 20px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+}
+#next-btn:hover{
+    background-color: blueviolet;
 }
