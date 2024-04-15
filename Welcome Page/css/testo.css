@@ -1,0 +1,22 @@
+#titolo{
+    font-size: 40px;
+    font-weight: 500;
+    margin: 10px 0;
+}
+
+#sottotitolo{
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+#paragraph{
+    margin-bottom: 10px;
+}
+
+.bold{
+    font-weight: 600;
+}
+
+#list{
+    margin-left: 30px;
+}
