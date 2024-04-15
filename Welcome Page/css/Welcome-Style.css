@@ -40,6 +40,7 @@ p{
     margin-top: 0;
     font-size: 1.2em;
     margin-bottom: 3em;
+    line-height: 1.2;
 }
 li{
     font-size: 1em;
@@ -78,3 +79,8 @@ ul{
 #check1 input[type="checkbox"]:checked {
     background-color: #00ffff;
   }
+
+
+form { margin-top: 6em;
+
+}
