@@ -6,15 +6,23 @@
 
 /*******************************formattazione testo***************************/
 body{
+    background-image: url(../assets/bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+main{
     text-align: left;
     position: absolute;
     top: 50%;
     left: 40%;
     transform: translate(-50%, -50%);
-    background-image: url(../assets/bg.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
     color: white;
+}
+img{
+    height: 2rem;
+    width: 8rem;
+    margin-top: 5em;
+    margin-left: 10em;
 }
 h1 {
     font-size: 5em;
