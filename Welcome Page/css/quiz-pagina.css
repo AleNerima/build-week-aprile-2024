@@ -19,6 +19,9 @@ main{
     transform: translate(-50%, -50%);
     color: white;
 }
+header {
+    float: left;
+}
 header img{
     height: 2rem;
     width: 8rem;
@@ -30,25 +33,27 @@ header img{
     margin: auto 5%;
     align-items: center;
 }
-.btn:hover{
-    background-color: transparent;
-    color: white;
-}
+
 .btn{
-    padding: 2em;
+    padding: 1.2em;
     font-size: 16px;
     background-color: rgb(211, 211, 211, 0.2);
     color: white;
     border-radius: 8em 8em 8em ;
+    border: none;
     margin: 15px;
     width: 28em;
+    box-shadow: 0px -3px rgb(255, 255, 255, 0.7);
 }
-
+.btn:hover{
+    background-color: transparent;
+    color: white;
+}
 #risposte{
     width: 70em;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
 #next-btn{
