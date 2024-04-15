@@ -6,14 +6,16 @@
 
 /*******************************formattazione testo***************************/
 body{
+    background-image: url(../assets/bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+main{
     text-align: left;
     position: absolute;
     top: 50%;
     left: 40%;
     transform: translate(-50%, -50%);
-    background-image: url(../assets/bg.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
     color: white;
 }
 h1 {
