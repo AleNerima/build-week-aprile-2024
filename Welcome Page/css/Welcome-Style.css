@@ -45,9 +45,15 @@ li{
     box-shadow: 0px 0px 20px #00FFFF;
 }
 
-#check1  {
-    margin-right: 0.6em;
-    display: inline;
-    opacity: 0;
-    }
     
+#check1 input[type="checkbox"] {
+    appearance: none; 
+    -webkit-appearance: none; 
+    width: 17px; 
+    height: 17px; 
+    background: transparent; 
+    border: 2px solid white; 
+    cursor: pointer; 
+    float: left;
+    margin-right: 0.6em;
+}
