@@ -18,6 +18,12 @@ main{
     transform: translate(-50%, -50%);
     color: white;
 }
+img{
+    height: 2rem;
+    width: 8rem;
+    margin-top: 5em;
+    margin-left: 10em;
+}
 h1 {
     font-size: 5em;
 }
