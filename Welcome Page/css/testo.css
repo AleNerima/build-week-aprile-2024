@@ -1,0 +1,16 @@
+ body{
+        text-align: left;
+        position: absolute;
+        top: 50%;
+        left: 40%;
+        transform: translate(-50%, -50%);
+        background-color: black;
+        color: white;
+    }
+h1 {
+    font-size: 5em;
+}
+h2 {
+    color: rgb(178, 43, 137);
+    font-size: 3 em;
+}
