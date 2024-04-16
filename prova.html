@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz</title>
+</head>
+<body>
+
+<div id="quiz-container">
+  <h2 id="question-category"></h2>
+  <h3 id="question"></h3>
+  <div id="answers">
+    <button class="answer-button"></button>
+    <button class="answer-button"></button>
+    <button class="answer-button"></button>
+    <button class="answer-button"></button>
+  </div>
+  <button id="next-button" style="display: none;">Next</button>
+</div>
+
+<script>
+const questions = [
+      {
+        category: "Science: Computers",
+        type: "multiple",
+        difficulty: "easy",
+        question: "What does CPU stand for?",
+        correct_answer: "Central Processing Unit",
+        incorrect_answers: [
+          "Central Process Unit",
+          "Computer Personal Unit",
+          "Central Processor Unit",
+        ],
+      },
+      {
+        category: "Science: Computers",
+        type: "multiple",
+        difficulty: "easy",
+        question:
+          "In the programming language Java, which of these keywords would you put on a variable to make sure it doesn&#039;t get modified?",
+        correct_answer: "Final",
+        incorrect_answers: ["Static", "Private", "Public"],
+      },
+      {
+        category: "Science: Computers",
+        type: "boolean",
+        difficulty: "easy",
+        question: "The logo for Snapchat is a Bell.",
+        correct_answer: "False",
+        incorrect_answers: ["True"],
+      },
+      {
+        category: "Science: Computers",
+        type: "boolean",
+        difficulty: "easy",
+        question:
+          "Pointers were not used in the original C programming language; they were added later on in C++.",
+        correct_answer: "False",
+        incorrect_answers: ["True"],
+      },
+      {
+        category: "Science: Computers",
+        type: "multiple",
+        difficulty: "easy",
+        question:
+          "What is the most preferred image format used for logos in the Wikimedia database?",
+        correct_answer: ".svg",
+        incorrect_answers: [".png", ".jpeg", ".gif"],
+      },
+      {
+        category: "Science: Computers",
+        type: "multiple",
+        difficulty: "easy",
+        question: "In web design, what does CSS stand for?",
+        correct_answer: "Cascading Style Sheet",
+        incorrect_answers: [
+          "Counter Strike: Source",
+          "Corrective Style Sheet",
+          "Computer Style Sheet",
+        ],
+      },
+      {
+        category: "Science: Computers",
+        type: "multiple",
+        difficulty: "easy",
+        question:
+          "What is the code name for the mobile operating system Android 7.0?",
+        correct_answer: "Nougat",
+        incorrect_answers: [
+          "Ice Cream Sandwich",
+          "Jelly Bean",
+          "Marshmallow",
+        ],
+      },
+      {
+        category: "Science: Computers",
+        type: "multiple",
+        difficulty: "easy",
+        question: "On Twitter, what is the character limit for a Tweet?",
+        correct_answer: "140",
+        incorrect_answers: ["120", "160", "100"],
+      },
+      {
+        category: "Science: Computers",
+        type: "boolean",
+        difficulty: "easy",
+        question: "Linux was first created as an alternative to Windows XP.",
+        correct_answer: "False",
+        incorrect_answers: ["True"],
+      },
+      {
+        category: "Science: Computers",
+        type: "multiple",
+        difficulty: "easy",
+        question:
+          "Which programming language shares its name with an island in Indonesia?",
+        correct_answer: "Java",
+        incorrect_answers: ["Python", "C", "Jakarta"],
+      },
+    ];
+
+  let currentQuestionIndex = 0;
+  let userAnswers = [];
+  let correctAnswers = 0;
+
+  const quizContainer = document.getElementById('quiz-container');
+  const questionCategoryElement = document.getElementById('question-category');
+  const questionElement = document.getElementById('question');
+  const answersElement = document.getElementById('answers');
+  const answerButtons = document.querySelectorAll('.answer-button');
+  const nextButton = document.getElementById('next-button');
+
+  function showQuestion(question) {
+    questionCategoryElement.textContent = question.category;
+    questionElement.textContent = question.question;
+    
+    // Clear previous event listeners
+    answerButtons.forEach(button => {
+      button.removeEventListener('click', handleClick);
+    });
+
+    // Determine number of answer buttons to display
+    const numAnswers = question.incorrect_answers.length + 1;
+    const shuffledAnswers = [...question.incorrect_answers, question.correct_answer].sort(() => Math.random() - 0.5);
+
+    // Hide unnecessary answer buttons
+    answerButtons.forEach((button, index) => {
+      if (index < numAnswers) {
+        button.style.display = 'block';
+        button.textContent = shuffledAnswers[index];
+        button.addEventListener('click', handleClick);
+      } else {
+        button.style.display = 'none';
+      }
+    });
+  }
+
+  function handleClick(event) {
+    const selectedAnswer = event.target.textContent;
+    const question = questions[currentQuestionIndex];
+    if (selectedAnswer === question.correct_answer) {
+      correctAnswers++;
+    }
+    userAnswers.push(selectedAnswer);
+    currentQuestionIndex++;
+    if (currentQuestionIndex < questions.length) {
+      showQuestion(questions[currentQuestionIndex]);
+    } else {
+      showResults();
+    }
+  }
+
+  function showResults() {
+    const score = (correctAnswers / questions.length) * 100;
+    quizContainer.innerHTML = `
+      <h2>Quiz completed!</h2>
+      <p>Your score: ${score.toFixed(2)}%</p>
+      <p>Your answers:</p>
+      <ul>
+        ${userAnswers.map((answer, index) => `<li>Question ${index + 1}: ${answer}</li>`).join('')}
+      </ul>
+    `;
+  }
+
+  nextButton.addEventListener('click', () => {
+    currentQuestionIndex++;
+    if (currentQuestionIndex < questions.length) {
+      showQuestion(questions[currentQuestionIndex]);
+    } else {
+      showResults();
+    }
+  });
+
+  showQuestion(questions[currentQuestionIndex]);
+</script>
+
+</body>
+</html>
