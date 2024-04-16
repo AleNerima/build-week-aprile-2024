@@ -1,25 +1,3 @@
-/****************************Pagina iniziale**************************************/
-const checkbox = document.getElementById('check');
-checkbox.addEventListener('change', function (){
-    let button= document.getElementById('procedi');
-
-    if(checkbox.checked){
-        button.disabled=false;
-        button.classList.remove('disabilitato_bottone');
-        button.classList.add('buttons');
-    }else{
-        button.disabled=true;
-        button.classList.remove('buttons');
-        button.classList.add('disabilitato_bottone');
-    }
-})
-
-document.getElementById('procedi').addEventListener('click', function (){
-    if (document.querySelector('#check').checked) {
-        window.location.href = "Quiz-Page.html";
-    }
-});
-/***************************************PAGINA QUIZ***********************************/
 /********ARRAY DOMANDE****************************/
 const questions = [
     {
@@ -126,13 +104,15 @@ const prossima= document.getElementById('next-btn');
 const domanda= document.getElementById('Domanda');
 /*********************************le nostre funzioni******************************************/
 function cercaStampaDomanda(){
-    const indice= questions[i]
-    let titolo= domanda
-    for(let i=0; i<indice.lenght; i++){
-        titolo.innerText()= indice.question
-        
-    };
+  let titolo = document.querySelector('#Domanda'); // Presuppone un elemento con id='domanda'
+  // Pulizia del contenuto precedente
+  titolo.innerHTML = '';
+  for(let i=0; i<questions.length; i++){
+      let indice = questions[i];
+      titolo.innerHTML += indice.question + "<br>"; // Aggiunge ogni domanda con un a capo
+  }
 }
+
 function convalidaRisposta(){};
 function bottoneProssima(){};
 
