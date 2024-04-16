@@ -121,6 +121,8 @@ function mostraDomanda() {
   const domandaCorrente = questions[indiceCorrente];
   domandaElement.innerHTML = `${indiceCorrente + 1}. ${domandaCorrente.question}`;
   caricaRisposte();
+  console.log("punteggio sbagliate", punteggioSbaglaite)
+  
 }
 
 function caricaRisposte() {
@@ -134,6 +136,7 @@ function caricaRisposte() {
     risposteButtons[2].classList.remove('hide');
     risposteButtons[3].classList.remove('hide');
   }
+  
 
   risposteButtons.forEach((button, index) => {
     button.textContent = risposte[index];
@@ -148,7 +151,7 @@ function caricaRisposte() {
       if (bottoneSelezionato.textContent === domanda.correct_answer) {
         giuste.push(bottoneSelezionato.textContent);
         punteggio++;
-      } else {
+      }  else if(domanda.incorrect_answers.includes(bottoneSelezionato.textContent)){
         sbagliate.push(bottoneSelezionato.textContent);
         punteggioSbaglaite++;
       }
@@ -168,9 +171,9 @@ prossimaButton.addEventListener('click', function() {
   this.style.display = 'none';  // Nasconde il bottone dopo la selezione
 });
 
+
+
 document.addEventListener('DOMContentLoaded', mostraDomanda);
 
 console.log('risposte giuste',giuste);
 console.log('risposte sbagliate',sbagliate);
-console.log ('punteggio', punteggio)
-console.log ('punteggiosba', punteggioSbaglaite)
