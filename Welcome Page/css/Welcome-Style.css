@@ -26,6 +26,9 @@ img{
     margin-top: 1.8em;
     margin-left: 10em;
 }
+.bold{
+    font-weight: 600;
+}
 h1 {
     font-size: 5em;
     margin-bottom: 0.8em;
@@ -44,7 +47,7 @@ p{
 }
 li{
     font-size: 1em;
-    margin: 0.9%;
+    margin: 10px;
     margin-left: 2em;
 }
 ul{
