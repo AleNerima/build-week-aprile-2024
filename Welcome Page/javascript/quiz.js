@@ -105,13 +105,15 @@ const domanda= document.getElementById('Domanda');
 
 let indiceCorrente=0
 let punteggio=0
+let indiceDomandaCorrente = 0;
 
 /*********************************le nostre funzioni******************************************/
 function iniziaIlQUiz(){
   indiceCorrente=0;
   punteggio=0;
   mostraLaDomanda();
-}
+};
+
 function mostraLaDomanda(){
   let domandaCorrente = questions[indiceCorrente];
   let numeroDomana=  indiceCorrente+1;
@@ -135,10 +137,29 @@ document.addEventListener('DOMContentLoaded', function() {
   caricaRisposte(0); // Sostituisci '0' con l'indice della domanda che vuoi mostrare
 });
 
+function convalidaRisposta() {
+  if (indiceDomandaCorrente >= questions.length) {
+      alert("Hai completato tutte le domande!");
+      document.getElementById('nextQuestion').style.display = 'none'; // Nasconde il bottone alla fine del quiz
+      return;
+  }
+  const risposteContainer = document.getElementById('risposte');
+  const bottoni = risposteContainer.getElementsByClassName('btn');
+  const domanda = questions[indiceDomandaCorrente];
+  const risposte = [...domanda.incorrect_answers];
+  risposte.splice(Math.floor(Math.random() * (risposte.length + 1)), 0, domanda.correct_answer);
+  for (let i = 0; i < bottoni.length; i++) {
+      bottoni[i].textContent = risposte[i];
+      bottoni[i].onclick = function() {
+          mostraRisultato(this.textContent === domanda.correct_answer);
+      };
+  }
+  document.getElementById('nextQuestion').style.display = 'inline'; // Mostra il bottone "Prossima"
+};
 
 
-function convalidaRisposta(){};
 function bottoneProssima(){};
 
 /********************************************richiamo funzioni*******************************/
-iniziaIlQUiz()
+iniziaIlQUiz();
+convalidaRisposta();
