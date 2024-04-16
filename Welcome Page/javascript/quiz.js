@@ -129,6 +129,7 @@ function caricaRisposte() {
   const domanda = questions[indiceCorrente];
   const risposte = [...domanda.incorrect_answers];
   risposte.splice(Math.floor(Math.random() * (risposte.length + 1)), 0, domanda.correct_answer);
+
   if (risposte.length === 2) {
     risposteButtons[2].classList.add('hide');
     risposteButtons[3].classList.add('hide');
@@ -136,36 +137,38 @@ function caricaRisposte() {
     risposteButtons[2].classList.remove('hide');
     risposteButtons[3].classList.remove('hide');
   }
-  
 
   risposteButtons.forEach((button, index) => {
     button.textContent = risposte[index];
-    button.addEventListener("click", function () {
-      const bottoneSelezionato = this
-      risposteButtons.forEach((otherButtons) => {
-        if (otherButtons !== bottoneSelezionato) {
-          otherButtons.classList.remove("rispostaSelezionata")
-        }
-        bottoneSelezionato.classList.add("rispostaSelezionata")
-      })
-      if (bottoneSelezionato.textContent === domanda.correct_answer) {
-        giuste.push(bottoneSelezionato.textContent);
-        punteggio++;
-      }  else if(domanda.incorrect_answers.includes(bottoneSelezionato.textContent)){
-        sbagliate.push(bottoneSelezionato.textContent);
-        punteggioSbaglaite++;
-      }
-      console.log("sbagliate", punteggioSbaglaite)
-      console.log("giuste", punteggio)
-      prossimaButton.style.display = 'inline';
-      prossimaButton.addEventListener("click", function(){
-        risposteButtons.forEach((button) => {
-          button.classList.remove("rispostaSelezionata")
-        })
-      })
-    });
+
+    // Rimuovi prima il listener esistente prima di aggiungerne uno nuovo
+    button.removeEventListener("click", gestisciClickRisposta);
+    button.addEventListener("click", gestisciClickRisposta);
   });
 }
+
+function gestisciClickRisposta() {
+  const bottoneSelezionato = this;
+  risposteButtons.forEach(button => {
+    button.classList.remove("rispostaSelezionata");
+  });
+  bottoneSelezionato.classList.add("rispostaSelezionata");
+
+  const domanda = questions[indiceCorrente];
+  if (bottoneSelezionato.textContent === domanda.correct_answer) {
+    if (!giuste.includes(bottoneSelezionato.textContent)) { // Controlla se non è già conteggiato
+      giuste.push(bottoneSelezionato.textContent);
+      punteggio++;
+    }
+  } else if (!sbagliate.includes(bottoneSelezionato.textContent)) {
+    sbagliate.push(bottoneSelezionato.textContent);
+    punteggioSbaglaite++;
+  }
+  console.log("sbagliate", punteggioSbaglaite);
+  console.log("giuste", punteggio);
+  prossimaButton.style.display = 'inline';
+}
+
 
 prossimaButton.addEventListener('click', function () {
   prossimaDomanda();
