@@ -49,10 +49,13 @@ p{
   }
   
   .star {
-    width: 40px; 
+    width: 50px; 
     cursor: pointer; 
-    filter: grayscale(100%);
-    margin:25px
+    filter: brightness(0%);
+    margin:20px
+  }
+  .star:hover{
+    filter: brightness(50%)
   }
   
   .star.active {
