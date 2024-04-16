@@ -116,12 +116,32 @@ function mostraDomanda() {
     alert("Hai completato tutte le domande!");
     prossimaButton.style.display = 'none';
     return;
-    
   }
 
   const domandaCorrente = questions[indiceCorrente];
   domandaElement.innerHTML = `${indiceCorrente + 1}. ${domandaCorrente.question}`;
   caricaRisposte();
+
+ 
+  const numeroDomandaContainer = document.getElementById('numero-domanda-container');
+  if (numeroDomandaContainer) {
+    numeroDomandaContainer.remove();
+  }
+
+  // Creazione dell'elemento per mostrare il numero della domanda
+  const numeroDomandaContainerNew = document.createElement('div');
+  numeroDomandaContainerNew.id = 'numero-domanda-container'; // ID del container per il numero della domanda
+
+  const numeroDomanda = document.createElement('span');
+  numeroDomanda.textContent = `${indiceCorrente + 1}/${questions.length}`;
+  numeroDomanda.style.display = 'block'; // Per centrare
+  numeroDomanda.style.margin = '10px auto'; // Spazio dal basso e centrato
+  numeroDomanda.style.textAlign = 'center'; // Per centrare
+  numeroDomandaContainerNew.appendChild(numeroDomanda);
+
+  // Inserimento del container con il numero della domanda alla fine della pagina
+  const parentElement = document.getElementById('risposte').parentNode; // Elemento padre delle risposte
+  parentElement.appendChild(numeroDomandaContainerNew);
   
 }
 
