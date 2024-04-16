@@ -31,17 +31,17 @@ p{
 }
   
   .feedback-container label {
-    display: block; /* Rendi il label un blocco per posizionarlo sopra l'input */
-    margin-bottom: 5px; /* Spazio vuoto sotto il label */
+    display: block;
+    margin-bottom: 5px; 
   }
   
   .feedback-input {
     color: white;
     font-size: 16px;
     border: none;
-    border-bottom: 1px solid #D20094 ; /* Colore e stile della linea */
-    width: 100%; /* Occupa tutta la larghezza disponibile */
-    padding: 5px 0; /* Spazio interno per una migliore visualizzazione */
+    border-bottom: 1px solid #D20094 ; 
+    width: 100%; 
+    padding: 5px 0; 
     background-color: transparent;
   }
   .star-rating {
@@ -49,11 +49,11 @@ p{
   }
   
   .star {
-    width: 25px; /* Dimensioni dell'immagine della stella */
-    cursor: pointer; /* Cambia il cursore quando si passa sopra la stella */
-    filter: grayscale(100%); /* Imposta l'immagine grigia */
+    width: 25px; 
+    cursor: pointer; 
+    filter: grayscale(100%);
   }
   
   .star.active {
-    filter: none; /* Rimuove il filtro grigio quando la stella è attiva */
+    filter: none; 
   }
