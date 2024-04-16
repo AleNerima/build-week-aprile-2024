@@ -211,6 +211,8 @@ function mostraRisultati() {
    <div id="incorrette"><p>Risposte sbagliate: ${risposteSbagliate} (${percentualeSbagliate.toFixed(2)}%)</p>
    </div>
    `;
+    document.getElementById('quiz').style.display = 'none';
+    document.getElementById("timer").style.display = 'none';
     // Creazione del dataset per il grafico a torta
     const data = {
       labels: ["Risposte Corrette", "Risposte Sbagliate"],
@@ -260,8 +262,7 @@ function mostraRisultati() {
     document.getElementById('graficoRisultati').style.display = 'block';
     mostraRisultati()
     
-  document.getElementById('quiz').style.display = 'none';
-  document.getElementById("timer").style.display = 'none';
+  
 
   // Mostra i risultati
   document.getElementById('risultati').innerHTML = risultatiHTML;
