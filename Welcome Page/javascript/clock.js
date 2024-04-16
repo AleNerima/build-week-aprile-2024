@@ -3,17 +3,9 @@ const WARNING_THRESHOLD = 10;
 const ALERT_THRESHOLD = 5;
 
 const COLOR_CODES = {
-  info: {
-    color: "green"
-  },
-  warning: {
-    color: "orange",
-    threshold: WARNING_THRESHOLD
-  },
-  alert: {
-    color: "red",
-    threshold: ALERT_THRESHOLD
-  }
+  info: { color: "green" },
+  warning: { color: "orange", threshold: WARNING_THRESHOLD },
+  alert: { color: "red", threshold: ALERT_THRESHOLD }
 };
 
 const TIME_LIMIT = 59;
@@ -46,10 +38,9 @@ document.getElementById("timer").innerHTML = `
 </div>
 `;
 
-startTimer();
-
 function onTimesUp() {
   clearInterval(timerInterval);
+  prossimaDomanda();
 }
 
 function startTimer() {
