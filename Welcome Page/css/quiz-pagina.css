@@ -168,3 +168,7 @@ header img{
   padding: 0;
   display: none;
 }
+
+#risultati {
+  width: 350px;
+}

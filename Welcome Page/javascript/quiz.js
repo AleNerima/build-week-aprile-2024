@@ -209,8 +209,55 @@ function mostraRisultati() {
     <p>Risposte corrette: ${risposteCorrette} (${percentualeCorrette.toFixed(2)}%)</p>
     <p>Risposte sbagliate: ${risposteSbagliate} (${percentualeSbagliate.toFixed(2)}%)</p>
   `;
+    // Creazione del dataset per il grafico a torta
+    const data = {
+      labels: ["Risposte Corrette", "Risposte Sbagliate"],
+      datasets: [{
+        label: 'Risultati del Quiz',
+        data: [risposteCorrette, risposteSbagliate],
+        backgroundColor: [
+          'rgb(75, 192, 192)',
+          'rgb(255, 99, 132)'
+        ],
+        hoverOffset: 4
+      }]
+    };
+  
+    
+    const options = {
+      responsive: true,
+      plugins: {
+        legend: {
+          display: true,
+          position: 'bottom'
+        },
+        title: {
+          display: true,
+          text: 'Risultati del Quiz'
+        }
+      },
+      cutout: '70%', // Imposta la percentuale di "taglio" per trasformare il grafico a torta in una ciambella
+      layout: {
+        padding: 10 // Aggiungi spazio di riempimento per una migliore leggibilità
+      }
+    };
+  
+    
+    const canvasGrafico = document.getElementById('graficoRisultati').getContext('2d');
+  
+    
+    new Chart(canvasGrafico, {
+      type: 'doughnut',
+      data: data,
+      options: options
+    });
 
-  // Nascondi il quiz
+    document.getElementById('quiz').style.display = 'none';
+  
+    
+    document.getElementById('graficoRisultati').style.display = 'block';
+    mostraRisultati()
+    
   document.getElementById('quiz').style.display = 'none';
   document.getElementById("timer").style.display = 'none';
 
