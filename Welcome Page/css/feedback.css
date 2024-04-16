@@ -49,9 +49,10 @@ p{
   }
   
   .star {
-    width: 25px; 
+    width: 40px; 
     cursor: pointer; 
     filter: grayscale(100%);
+    margin:25px
   }
   
   .star.active {
