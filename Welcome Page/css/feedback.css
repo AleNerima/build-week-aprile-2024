@@ -1,0 +1,46 @@
+body{
+    background-image: url(../assets/bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+main{
+    position: absolute;
+    top: 29%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+header {
+    float: left;
+}
+header img{
+    height: 2rem;
+    width: 8rem;
+    margin-top: 1.8em;
+    margin-left: 22em;
+}
+h1{
+    text-align: center;
+    font-size: 3em;
+    margin-bottom: 0;
+}
+p{
+    text-align: center; 
+    font-size: 1.4em;
+    margin-top: 0;
+}
+  
+  .feedback-container label {
+    display: block; /* Rendi il label un blocco per posizionarlo sopra l'input */
+    margin-bottom: 5px; /* Spazio vuoto sotto il label */
+  }
+  
+  .feedback-input {
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-bottom: 1px solid #D20094 ; /* Colore e stile della linea */
+    width: 100%; /* Occupa tutta la larghezza disponibile */
+    padding: 5px 0; /* Spazio interno per una migliore visualizzazione */
+    background-color: transparent;
+  }
