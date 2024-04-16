@@ -86,6 +86,13 @@ header img{
     margin: auto 5%;
     align-items: center;
 }
+.btn {
+  display: inline-block;
+}
+
+.hide {
+  display: none;
+}
 
 .btn{
     padding: 1.2em;

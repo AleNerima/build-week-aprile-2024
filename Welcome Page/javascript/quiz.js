@@ -109,7 +109,7 @@ const sbagliate=[]
 
 let indiceCorrente = 0;
 let punteggio = 0;
-
+let punteggioSbaglaite=0
 /*********************************Funzioni******************************************/
 function mostraDomanda() {
   if (indiceCorrente >= questions.length) {
@@ -127,6 +127,13 @@ function caricaRisposte() {
   const domanda = questions[indiceCorrente];
   const risposte = [...domanda.incorrect_answers];
   risposte.splice(Math.floor(Math.random() * (risposte.length + 1)), 0, domanda.correct_answer);
+  if (risposte.length === 2) {
+    risposteButtons[2].classList.add('hide');
+    risposteButtons[3].classList.add('hide');
+  } else {
+    risposteButtons[2].classList.remove('hide');
+    risposteButtons[3].classList.remove('hide');
+  }
 
   risposteButtons.forEach((button, index) => {
     button.textContent = risposte[index];
@@ -143,6 +150,7 @@ function caricaRisposte() {
         punteggio++;
       } else {
         sbagliate.push(bottoneSelezionato.textContent);
+        punteggioSbaglaite++;
       }
       prossimaButton.style.display = 'inline';
       prossimaButton.addEventListener("click", function(){
@@ -162,4 +170,7 @@ prossimaButton.addEventListener('click', function() {
 
 document.addEventListener('DOMContentLoaded', mostraDomanda);
 
-console.log(giuste);
+console.log('risposte giuste',giuste);
+console.log('risposte sbagliate',sbagliate);
+console.log ('punteggio', punteggio)
+console.log ('punteggiosba', punteggioSbaglaite)
