@@ -167,15 +167,33 @@ function caricaRisposte() {
   });
 }
 
-prossimaButton.addEventListener('click', function() {
-  indiceCorrente++;
-  mostraDomanda();
-  this.style.display = 'none';  // Nasconde il bottone dopo la selezione
+prossimaButton.addEventListener('click', function () {
+  prossimaDomanda();
 });
 
+function prossimaDomanda() {
+  indiceCorrente++;
+  mostraDomanda();
+  resettaTimer();
+}
 
+function resettaTimer() {
+  clearInterval(timerInterval);
+  timePassed = 0;
+  timeLeft = TIME_LIMIT;
+  startTimer();
+  document
+    .getElementById("base-timer-path-remaining")
+    .classList.remove(COLOR_CODES.alert.color); // Rimuovi il colore rosso
+  document
+    .getElementById("base-timer-path-remaining")
+    .classList.add(COLOR_CODES.info.color); // Aggiungi il colore iniziale
+}
 
-document.addEventListener('DOMContentLoaded', mostraDomanda);
+document.addEventListener('DOMContentLoaded', () => {
+  mostraDomanda();
+  startTimer();
+});
 
 console.log('risposte giuste',giuste);
 console.log('risposte sbagliate',sbagliate);
