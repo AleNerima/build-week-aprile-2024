@@ -213,6 +213,7 @@ function mostraRisultati() {
    `;
     document.getElementById('quiz').style.display = 'none';
     document.getElementById("timer").style.display = 'none';
+    window.onload=document.getElementById('bottone_risultati').style.display = 'none';
     // Creazione del dataset per il grafico a torta
     const data = {
       labels: ["Risposte Corrette", "Risposte Sbagliate"],
@@ -266,5 +267,4 @@ function mostraRisultati() {
 
   // Mostra i risultati
   document.getElementById('risultati').innerHTML = risultatiHTML;
-  window.onload=document.getElementById('bottone_risultati').style.display = 'none';
 }
