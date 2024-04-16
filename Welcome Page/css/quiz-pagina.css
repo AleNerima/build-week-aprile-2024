@@ -153,3 +153,18 @@ header img{
 #next-btn:hover{
     background-color: blueviolet;
 }
+
+#bottone_risultati{
+  float: center;
+  width: 15em;
+  height: 3.5em;
+  background: none;
+  color: rgb(255, 255, 255, 0.7);
+  border: 1px solid rgb(255, 255, 255, 0.7);
+  margin: 20px 20px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 0;
+  display: none;
+}

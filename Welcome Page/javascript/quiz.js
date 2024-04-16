@@ -114,7 +114,7 @@ let punteggioSbagliate=0
 /*********************************Funzioni******************************************/
 function mostraDomanda() {
   if (indiceCorrente >= questions.length) {
-    alert("Hai completato tutte le domande!");
+    document.getElementById('bottone_risultati').style.display = 'block'
     prossimaButton.style.display = 'none';
     return;
   }
@@ -193,3 +193,26 @@ document.addEventListener('DOMContentLoaded', () => {
   mostraDomanda();
   prossimaButton.addEventListener('click', prossimaDomanda);
 });
+
+
+
+function mostraRisultati() {
+  const totaleDomande = questions.length;
+  const risposteCorrette = giuste.length;
+  const risposteSbagliate = sbagliate.length;
+  const percentualeCorrette = (risposteCorrette / totaleDomande) * 100;
+  const percentualeSbagliate = (risposteSbagliate / totaleDomande) * 100;
+
+  const risultatiHTML = `
+    <h2>Risultati del Quiz</h2>
+    <p>Domande totali: ${totaleDomande}</p>
+    <p>Risposte corrette: ${risposteCorrette} (${percentualeCorrette.toFixed(2)}%)</p>
+    <p>Risposte sbagliate: ${risposteSbagliate} (${percentualeSbagliate.toFixed(2)}%)</p>
+  `;
+
+  // Nascondi il quiz
+  document.getElementById('quiz').style.display = 'none';
+
+  // Mostra i risultati
+  document.getElementById('risultati').innerHTML = risultatiHTML;
+}
