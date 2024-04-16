@@ -130,15 +130,27 @@ function caricaRisposte() {
 
   risposteButtons.forEach((button, index) => {
     button.textContent = risposte[index];
-    button.onclick = function () {
-      if (this.textContent === domanda.correct_answer) {
-        giuste.push(this.textContent);
+    button.addEventListener("click", function () {
+      const bottoneSelezionato = this
+      risposteButtons.forEach((otherButtons) => {
+        if (otherButtons !== bottoneSelezionato) {
+          otherButtons.classList.remove("rispostaSelezionata")
+        }
+        bottoneSelezionato.classList.add("rispostaSelezionata")
+      })
+      if (bottoneSelezionato.textContent === domanda.correct_answer) {
+        giuste.push(bottoneSelezionato.textContent);
         punteggio++;
       } else {
-        sbagliate.push(this.textContent);
+        sbagliate.push(bottoneSelezionato.textContent);
       }
       prossimaButton.style.display = 'inline';
-    };
+      prossimaButton.addEventListener("click", function(){
+        risposteButtons.forEach((button) => {
+          button.classList.remove("rispostaSelezionata")
+        })
+      })
+    });
   });
 }
 

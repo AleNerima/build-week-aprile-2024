@@ -110,7 +110,19 @@ header img{
     flex-wrap: wrap;
     justify-content: space-evenly;
 }
-
+.rispostaSelezionata{
+  padding: 1.2em;
+  font-size: 16px;
+  background-color:  rgb(114, 22, 199);
+  color: white;
+  border-radius: 8em 8em 8em ;
+  border: none;
+  margin: 15px;
+  width: 28em;
+  box-shadow: 0px -3px rgb(255, 255, 255, 0.7);
+  word-wrap: break-word;
+  cursor: pointer;
+}
 #next-btn{
     float: right;
     width: 15em;
