@@ -109,20 +109,18 @@ const sbagliate=[]
 
 let indiceCorrente = 0;
 let punteggio = 0;
-let punteggioSbaglaite=0
+let punteggioSbagliate=0
 /*********************************Funzioni******************************************/
 function mostraDomanda() {
   if (indiceCorrente >= questions.length) {
     alert("Hai completato tutte le domande!");
     prossimaButton.style.display = 'none';
     return;
-    
   }
 
   const domandaCorrente = questions[indiceCorrente];
   domandaElement.innerHTML = `${indiceCorrente + 1}. ${domandaCorrente.question}`;
   caricaRisposte();
-  
 }
 
 function caricaRisposte() {
@@ -130,54 +128,46 @@ function caricaRisposte() {
   const risposte = [...domanda.incorrect_answers];
   risposte.splice(Math.floor(Math.random() * (risposte.length + 1)), 0, domanda.correct_answer);
 
-  if (risposte.length === 2) {
-    risposteButtons[2].classList.add('hide');
-    risposteButtons[3].classList.add('hide');
-  } else {
-    risposteButtons[2].classList.remove('hide');
-    risposteButtons[3].classList.remove('hide');
-  }
-
   risposteButtons.forEach((button, index) => {
-    button.textContent = risposte[index];
-
-    // Rimuovi prima il listener esistente prima di aggiungerne uno nuovo
-    button.removeEventListener("click", gestisciClickRisposta);
-    button.addEventListener("click", gestisciClickRisposta);
+    if (index < risposte.length) {
+      button.textContent = risposte[index];
+      button.disabled = false;
+      button.classList.remove('hide');
+      button.classList.remove("rispostaSelezionata");
+      button.addEventListener("click", gestisciClickRisposta);
+    } else {
+      button.classList.add('hide');
+    }
   });
 }
 
 function gestisciClickRisposta() {
-  const bottoneSelezionato = this;
   risposteButtons.forEach(button => {
-    button.classList.remove("rispostaSelezionata");
+    button.disabled = true;
   });
-  bottoneSelezionato.classList.add("rispostaSelezionata");
+
+  this.classList.add("rispostaSelezionata");
 
   const domanda = questions[indiceCorrente];
-  if (bottoneSelezionato.textContent === domanda.correct_answer) {
-    if (!giuste.includes(bottoneSelezionato.textContent)) { // Controlla se non è già conteggiato
-      giuste.push(bottoneSelezionato.textContent);
-      punteggio++;
-    }
-  } else if (!sbagliate.includes(bottoneSelezionato.textContent)) {
-    sbagliate.push(bottoneSelezionato.textContent);
-    punteggioSbaglaite++;
+  if (this.textContent === domanda.correct_answer) {
+    giuste.push(this.textContent);
+    punteggio++;
+  } else {
+    sbagliate.push(this.textContent);
+    punteggioSbagliate++;
   }
-  console.log("sbagliate", punteggioSbaglaite);
+  console.log("sbagliate", punteggioSbagliate);
   console.log("giuste", punteggio);
   prossimaButton.style.display = 'inline';
 }
-
-
-prossimaButton.addEventListener('click', function () {
-  prossimaDomanda();
-});
 
 function prossimaDomanda() {
   indiceCorrente++;
   mostraDomanda();
   resettaTimer();
+  risposteButtons.forEach(button => {
+    button.disabled = false;
+  });
 }
 
 function resettaTimer() {
@@ -192,10 +182,13 @@ function resettaTimer() {
     .getElementById("base-timer-path-remaining")
     .classList.add(COLOR_CODES.info.color); // Aggiungi il colore iniziale
 }
-
 document.addEventListener('DOMContentLoaded', () => {
   mostraDomanda();
   startTimer();
+});
+document.addEventListener('DOMContentLoaded', () => {
+  mostraDomanda();
+  prossimaButton.addEventListener('click', prossimaDomanda);
 });
 
 console.log('risposte giuste',giuste);
