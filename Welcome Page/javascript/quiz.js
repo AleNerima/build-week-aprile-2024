@@ -103,6 +103,7 @@ const questions = [
 const risposteButtons = document.querySelectorAll('.btn');
 const prossimaButton = document.getElementById('next-btn');
 const domandaElement = document.getElementById('Domanda');
+const divNumeroDomande = document.getElementById("myDiv");
 const giuste=[];
 const sbagliate=[]
 
@@ -119,7 +120,8 @@ function mostraDomanda() {
   }
 
   const domandaCorrente = questions[indiceCorrente];
-  domandaElement.innerHTML = `${indiceCorrente + 1}. ${domandaCorrente.question}`;
+  divNumeroDomande.innerHTML = `${indiceCorrente + 1}/${questions.length}`
+  domandaElement.innerHTML = `${domandaCorrente.question}`;
   caricaRisposte();
 }
 
