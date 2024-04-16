@@ -99,67 +99,51 @@ const questions = [
     },
   ];
 /*************************costanti e variabili***********************************/
-const risposte= document.querySelectorAll('.btn');
-const prossima= document.getElementById('next-btn');
-const domanda= document.getElementById('Domanda');
+/*************************Costanti e variabili***********************************/
+const risposteButtons = document.querySelectorAll('.btn');
+const prossimaButton = document.getElementById('next-btn');
+const domandaElement = document.getElementById('Domanda');
 
-let indiceCorrente=0
-let punteggio=0
-let indiceDomandaCorrente = 0;
+let indiceCorrente = 0;
+let punteggio = 0;
 
-/*********************************le nostre funzioni******************************************/
-function iniziaIlQUiz(){
-  indiceCorrente=0;
-  punteggio=0;
-  mostraLaDomanda();
-};
-
-function mostraLaDomanda(){
-  let domandaCorrente = questions[indiceCorrente];
-  let numeroDomana=  indiceCorrente+1;
-  domanda.innerHTML = numeroDomana+'.'+domandaCorrente.question;  
-};
-
-function caricaRisposte(index) {
-  const risposteContainer = document.getElementById('risposte');
-  const bottoni = risposteContainer.getElementsByClassName('btn');
-  // Selezionare la domanda e le sue risposte
-  const domanda = questions[index];
-  const risposte = [...domanda.incorrect_answers];
-  risposte.splice(Math.floor(Math.random() * (risposte.length + 1)), 0, domanda.correct_answer); // Inserisce la risposta corretta in posizione casuale
-  // Assegnare le risposte ai bottoni
-  for (let i = 0; i < bottoni.length; i++) {
-      bottoni[i].textContent = risposte[i]; // Cambia il testo di ogni bottone con una risposta
+/*********************************Funzioni******************************************/
+function mostraDomanda() {
+  if (indiceCorrente >= questions.length) {
+    alert("Hai completato tutte le domande!");
+    prossimaButton.style.display = 'none';
+    return;
   }
+
+  const domandaCorrente = questions[indiceCorrente];
+  domandaElement.innerHTML = `${indiceCorrente + 1}. ${domandaCorrente.question}`;
+  caricaRisposte();
 }
-// Caricare le risposte per una domanda specifica quando la pagina è pronta
-document.addEventListener('DOMContentLoaded', function() {
-  caricaRisposte(0); // Sostituisci '0' con l'indice della domanda che vuoi mostrare
-});
 
-function convalidaRisposta() {
-  if (indiceDomandaCorrente >= questions.length) {
-      alert("Hai completato tutte le domande!");
-      document.getElementById('nextQuestion').style.display = 'none'; // Nasconde il bottone alla fine del quiz
-      return;
-  }
-  const risposteContainer = document.getElementById('risposte');
-  const bottoni = risposteContainer.getElementsByClassName('btn');
-  const domanda = questions[indiceDomandaCorrente];
+function caricaRisposte() {
+  const domanda = questions[indiceCorrente];
   const risposte = [...domanda.incorrect_answers];
   risposte.splice(Math.floor(Math.random() * (risposte.length + 1)), 0, domanda.correct_answer);
-  for (let i = 0; i < bottoni.length; i++) {
-      bottoni[i].textContent = risposte[i];
-      bottoni[i].onclick = function() {
-          mostraRisultato(this.textContent === domanda.correct_answer);
-      };
-  }
-  document.getElementById('nextQuestion').style.display = 'inline'; // Mostra il bottone "Prossima"
-};
 
+  risposteButtons.forEach((button, index) => {
+    button.textContent = risposte[index];
+    button.onclick = function () {
+      if (this.textContent === domanda.correct_answer) {
+        alert('Corretto!');
+        punteggio++;
+      } else {
+        alert('Sbagliato!');
+      }
+      prossimaButton.style.display = 'inline';
+    };
+  });
+}
 
-function bottoneProssima(){};
+prossimaButton.addEventListener('click', function() {
+  indiceCorrente++;
+  mostraDomanda();
+  this.style.display = 'none';  // Nasconde il bottone dopo la selezione
+});
 
-/********************************************richiamo funzioni*******************************/
-iniziaIlQUiz();
-convalidaRisposta();
+document.addEventListener('DOMContentLoaded', mostraDomanda);
+
