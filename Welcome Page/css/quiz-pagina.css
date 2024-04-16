@@ -172,3 +172,20 @@ header img{
 #risultati {
   width: 350px;
 }
+.flex_container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-bottom: 500px;
+}
+#titolo_risultati{
+  text-align: center;
+}
+
+#corrette{
+  margin-right: 200px;
+}
+
+#incorrette{
+margin-left: 200px;
+}

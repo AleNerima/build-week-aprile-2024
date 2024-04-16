@@ -44,3 +44,16 @@ p{
     padding: 5px 0; /* Spazio interno per una migliore visualizzazione */
     background-color: transparent;
   }
+  .star-rating {
+    display: inline-block;
+  }
+  
+  .star {
+    width: 25px; /* Dimensioni dell'immagine della stella */
+    cursor: pointer; /* Cambia il cursore quando si passa sopra la stella */
+    filter: grayscale(100%); /* Imposta l'immagine grigia */
+  }
+  
+  .star.active {
+    filter: none; /* Rimuove il filtro grigio quando la stella è attiva */
+  }
