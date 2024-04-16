@@ -212,6 +212,7 @@ function mostraRisultati() {
 
   // Nascondi il quiz
   document.getElementById('quiz').style.display = 'none';
+  document.getElementById("timer").style.display = 'none';
 
   // Mostra i risultati
   document.getElementById('risultati').innerHTML = risultatiHTML;
