@@ -116,12 +116,12 @@ function mostraDomanda() {
     alert("Hai completato tutte le domande!");
     prossimaButton.style.display = 'none';
     return;
+    
   }
 
   const domandaCorrente = questions[indiceCorrente];
   domandaElement.innerHTML = `${indiceCorrente + 1}. ${domandaCorrente.question}`;
   caricaRisposte();
-  console.log("punteggio sbagliate", punteggioSbaglaite)
   
 }
 
@@ -155,6 +155,8 @@ function caricaRisposte() {
         sbagliate.push(bottoneSelezionato.textContent);
         punteggioSbaglaite++;
       }
+      console.log("sbagliate", punteggioSbaglaite)
+      console.log("giuste", punteggio)
       prossimaButton.style.display = 'inline';
       prossimaButton.addEventListener("click", function(){
         risposteButtons.forEach((button) => {
