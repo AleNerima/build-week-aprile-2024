@@ -103,6 +103,9 @@ const questions = [
 const risposteButtons = document.querySelectorAll('.btn');
 const prossimaButton = document.getElementById('next-btn');
 const domandaElement = document.getElementById('Domanda');
+const giuste=[];
+const sbagliate=[]
+
 
 let indiceCorrente = 0;
 let punteggio = 0;
@@ -129,10 +132,10 @@ function caricaRisposte() {
     button.textContent = risposte[index];
     button.onclick = function () {
       if (this.textContent === domanda.correct_answer) {
-        alert('Corretto!');
+        giuste.push(this.textContent);
         punteggio++;
       } else {
-        alert('Sbagliato!');
+        sbagliate.push(this.textContent);
       }
       prossimaButton.style.display = 'inline';
     };
@@ -147,3 +150,4 @@ prossimaButton.addEventListener('click', function() {
 
 document.addEventListener('DOMContentLoaded', mostraDomanda);
 
+console.log(giuste);
