@@ -45,9 +45,10 @@ header img{
     width: 28em;
     box-shadow: 0px -3px rgb(255, 255, 255, 0.7);
     word-wrap: break-word;
+    cursor: pointer;
 }
 .btn:hover{
-    background-color: transparent;
+    background-color: rgb(130, 33, 221);
     color: white;
 }
 #risposte{
