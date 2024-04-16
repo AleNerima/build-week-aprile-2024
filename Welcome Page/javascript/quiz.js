@@ -171,7 +171,7 @@ function prossimaDomanda() {
     button.disabled = false;
   });
 }
-
+/*************funzione timer************************/
 function resettaTimer() {
   clearInterval(timerInterval);
   timePassed = 0;
@@ -195,7 +195,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-
+/***********************************funzioni risultati****************************/
 function mostraRisultati() {
   const totaleDomande = questions.length;
   const risposteCorrette = giuste.length;
