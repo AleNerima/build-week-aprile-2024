@@ -102,18 +102,43 @@ const questions = [
 const risposte= document.querySelectorAll('.btn');
 const prossima= document.getElementById('next-btn');
 const domanda= document.getElementById('Domanda');
+
+let indiceCorrente=0
+let punteggio=0
+
 /*********************************le nostre funzioni******************************************/
-function cercaStampaDomanda(){
-  let titolo = document.querySelector('#Domanda'); // Presuppone un elemento con id='domanda'
-  // Pulizia del contenuto precedente
-  titolo.innerHTML = '';
-  for(let i=0; i<questions.length; i++){
-      let indice = questions[i];
-      titolo.innerHTML += indice.question + "<br>"; // Aggiunge ogni domanda con un a capo
+function iniziaIlQUiz(){
+  indiceCorrente=0;
+  punteggio=0;
+  mostraLaDomanda();
+}
+function mostraLaDomanda(){
+  let domandaCorrente = questions[indiceCorrente];
+  let numeroDomana=  indiceCorrente+1;
+  domanda.innerHTML = numeroDomana+'.'+domandaCorrente.question;  
+};
+
+function caricaRisposte(index) {
+  const risposteContainer = document.getElementById('risposte');
+  const bottoni = risposteContainer.getElementsByClassName('btn');
+  // Selezionare la domanda e le sue risposte
+  const domanda = questions[index];
+  const risposte = [...domanda.incorrect_answers];
+  risposte.splice(Math.floor(Math.random() * (risposte.length + 1)), 0, domanda.correct_answer); // Inserisce la risposta corretta in posizione casuale
+  // Assegnare le risposte ai bottoni
+  for (let i = 0; i < bottoni.length; i++) {
+      bottoni[i].textContent = risposte[i]; // Cambia il testo di ogni bottone con una risposta
   }
 }
+// Caricare le risposte per una domanda specifica quando la pagina è pronta
+document.addEventListener('DOMContentLoaded', function() {
+  caricaRisposte(0); // Sostituisci '0' con l'indice della domanda che vuoi mostrare
+});
+
+
 
 function convalidaRisposta(){};
 function bottoneProssima(){};
 
 /********************************************richiamo funzioni*******************************/
+iniziaIlQUiz()
