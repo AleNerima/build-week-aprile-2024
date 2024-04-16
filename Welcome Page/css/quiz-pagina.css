@@ -5,9 +5,11 @@
 }
   /*********timer*/
   .base-timer {
-    position: relative;
-    width: 100px;
-    height: 100px;
+    position: fixed;
+    width: 5rem;
+    height: 3rem;
+    top: 0.2rem;
+    right: 1rem;
   }
   
   .base-timer__svg {
@@ -47,9 +49,9 @@
   }
   
   .base-timer__label {
-    position: absolute;
-    width: 100px;
-    height: 100px;
+    position: fixed;
+    width: 5.3rem;
+    height: 5.3rem;
     top: 0;
     display: flex;
     align-items: center;
