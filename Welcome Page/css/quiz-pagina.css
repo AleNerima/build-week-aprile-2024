@@ -99,9 +99,6 @@ header img{
     margin: auto 5%;
     align-items: center;
 }
-.btn {
-  display: inline-block;
-}
 
 .hide {
   display: none;
@@ -119,6 +116,10 @@ header img{
     box-shadow: 0px -3px rgb(255, 255, 255, 0.7);
     word-wrap: break-word;
     cursor: pointer;
+    display: inline-block;
+    font-family: "Rubik", sans-serif;
+    font-weight: 600;
+    font-size: 16px;
 }
 .btn:hover{
     background-color: rgb(130, 33, 221);
