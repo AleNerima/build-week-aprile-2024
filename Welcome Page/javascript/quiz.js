@@ -228,6 +228,7 @@ function mostraRisultati() {
    <div id="incorrette"><p>Risposte sbagliate: ${risposteSbagliate} (${percentualeSbagliate.toFixed(2)}%)</p>
    </div>
    `;
+    document.getElementById("feedback-btn").style.display = 'block';
     document.getElementById('quiz').style.display = 'none';
     document.getElementById("timer").style.display = 'none';
     window.onload=document.getElementById('bottone_risultati').style.display = 'none';
@@ -285,3 +286,8 @@ function mostraRisultati() {
   // Mostra i risultati
   document.getElementById('risultati').innerHTML = risultatiHTML;
 }
+
+/****************************bottone feedback*********************/
+document.getElementById("feedback-btn").addEventListener("click", function() {
+  window.location.href = "feedback.html"; // Sostituisci "pagina_feedback.html" con il percorso della tua pagina di feedback
+});
