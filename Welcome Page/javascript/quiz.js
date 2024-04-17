@@ -120,7 +120,7 @@ function mostraDomanda() {
   }
 
   const domandaCorrente = questions[indiceCorrente];
-  divNumeroDomande.innerHTML = `${indiceCorrente + 1}/${questions.length}`
+  divNumeroDomande.innerHTML = `<p id="numDom">Question ${indiceCorrente + 1} <span class="question_span">/ ${questions.length}</span></p>`
   domandaElement.innerHTML = `${domandaCorrente.question}`;
   caricaRisposte();
 }
