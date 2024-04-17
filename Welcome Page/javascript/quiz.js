@@ -267,7 +267,12 @@ function mostraRisultati() {
         borderColor: 'transparent'
       }]
     };
-    
+
+    document.getElementById("feedback-btn").addEventListener("click", function() {
+      // Reindirizza l'utente alla pagina desiderata
+      window.location.href = "feedback.html";
+  });
+  
     
     const config = {
       type: 'doughnut',
