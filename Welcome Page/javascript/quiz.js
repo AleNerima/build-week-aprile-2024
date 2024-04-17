@@ -197,6 +197,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
 /***********************************funzioni risultati****************************/
 function mostraRisultati() {
+
+   // Nascondi il timer
+   document.getElementById("timer").style.display = 'none';
+   // Nascondi il numero delle domande
+   document.getElementById("myDiv").style.display = 'none';
+ 
+   // Disabilita il timer
+   clearInterval(timerInterval);
+ 
+   // Disabilita i pulsanti di risposta
+   risposteButtons.forEach(button => {
+     button.disabled = true;
+   });
+ 
+   // Disabilita il pulsante "Prossima domanda"
+   prossimaButton.disabled = true;
+
   const totaleDomande = questions.length;
   const risposteCorrette = giuste.length;
   const risposteSbagliate = sbagliate.length;
