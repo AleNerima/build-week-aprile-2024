@@ -242,9 +242,8 @@ function mostraRisultati() {
   const risultatiHTML = `
     <h2 id="titolo_risultati">Risultati del Quiz</h2>
    <div class="flex_container">
-   <div id="corrette"><p>Risposte corrette: ${risposteCorrette} (${percentualeCorrette.toFixed(2)}%)</p></div>
-    
-   <div id="incorrette"><p>Risposte sbagliate: ${risposteSbagliate} (${percentualeSbagliate.toFixed(2)}%)</p>
+   <div id="corrette"><p> Correct ${percentualeCorrette.toFixed(2)}% ${risposteCorrette} </p></div>
+   <div id="incorrette"><p> Wrong ${percentualeSbagliate.toFixed(2)}% ${risposteSbagliate} </p>
    </div>
    `;
     document.getElementById("feedback-btn").style.display = 'block';
@@ -253,6 +252,8 @@ function mostraRisultati() {
     window.onload=document.getElementById('bottone_risultati').style.display = 'none';
     document.getElementById("testoSinistra").textContent = `Risposte corrette: ${risposteCorrette}/${totaleDomande} (${percentualeCorrette.toFixed(2)}%)`;
     document.getElementById("testoDestra").textContent = `Risposte sbagliate: ${risposteSbagliate}/${totaleDomande} (${percentualeSbagliate.toFixed(2)}%)`; // Creazione del dataset per il grafico a torta
+    
+    // Grafico
     const data = {
       labels: ["Risposte Corrette", "Risposte Sbagliate"],
       datasets: [{
@@ -260,12 +261,13 @@ function mostraRisultati() {
         data: [risposteCorrette, risposteSbagliate],
         backgroundColor: [
           'rgb(75, 192, 192)',
-          'rgb(255, 99, 132)'
+          '#C2128D'
         ],
-        hoverOffset: 4
+        hoverOffset: 4,
+        borderColor: 'transparent'
       }]
     };
-  
+    
     
     const config = {
       type: 'doughnut',
@@ -279,32 +281,37 @@ function mostraRisultati() {
             const { ctx, chartArea: { top, bottom, left, right, width, height } } = chart;
     
             ctx.save();
-            ctx.font = '16px Arial';
+            ctx.font = '16px Rubik';
             ctx.textAlign = 'center';
             ctx.textBaseline = 'middle';
             ctx.fillStyle = 'black';
     
-            // Frammenti di testo per l'esempio
-            const lines = [
-              { text: 'Congratulations!', color: 'white' },
-              { text: 'You passed the exam.', color: 'blue' },
-              { text: 'We\'ll send you the certificates', color: 'white' },
-              { text: 'in a few minutes.', color: 'white' },
-              { text: 'Check your email (including', color: 'white' },
-              { text: 'promotions/spam folder)', color: 'white' }
-            ];
+            let lines;
     
-            // Calcola l'altezza totale del testo
-            const lineHeight = 24; // altezza per linea, include spazio tra linee
+            if(risposteCorrette >= 6) {
+              lines = [
+                { text: 'Congratulations!', color: 'white', font:'20px Rubik', fontWeight: 'bold' },
+                { text: 'You passed the exam.', color: '#00FFFF', font:'20px Rubik', fontWeight: 'bold' },
+                { text: ''},
+                { text: 'We\'ll send you the certificates', color: 'white', font:'normal 15px Rubik' },
+                { text: 'in a few minutes.', color: 'white', font:'normal 15px Rubik' },
+                { text: 'Check your email (including', color: 'white', font:'normal 15px Rubik' },
+                { text: 'promotions/spam folder)', color: 'white', font:'normal 15px Rubik' }
+              ];
+            } else {
+              lines = [
+                { text: "Sorry, you didn\'t pass the exam.", color: 'white', font:'20px Rubik', fontWeight: 'bold'}
+              ];
+            }
+    
+            const lineHeight = 24; 
             const totalHeight = lines.length * lineHeight;
-    
-            // Posizione iniziale Y per centrare il testo
             const startY = top + (height - totalHeight) / 2;
     
-            // Disegna ogni linea con il suo colore specifico
             lines.forEach((line, i) => {
               const lineY = startY + i * lineHeight;
-              ctx.fillStyle = line.color;  // Imposta il colore del testo per la linea corrente
+              ctx.fillStyle = line.color;
+              ctx.font = `${line.fontWeight || 'normal'} ${line.font || '16px Arial'}`
               ctx.fillText(line.text, left + width / 2, lineY);
             });
     
@@ -319,13 +326,9 @@ function mostraRisultati() {
       }
     };
     
-    
-        
-    
     const canvasGrafico = document.getElementById('graficoRisultati').getContext('2d');
-  
     
-    new Chart(canvasGrafico, config)
+    new Chart(canvasGrafico, config);
 
     document.getElementById('quiz').style.display = 'none';
   
