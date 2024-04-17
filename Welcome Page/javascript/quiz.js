@@ -267,44 +267,65 @@ function mostraRisultati() {
     };
   
     
-     const options = {
-      responsive: true,
-      animation: {
-        onComplete: function() {
-          const chart = this;
-          const { ctx, chartArea: { top, bottom, left, right, width, height } } = chart;
+    const config = {
+      type: 'doughnut',
+      data: data,
+      options: {
+        responsive: true,
+        cutout: '70%', // Modifica questa percentuale per rendere la ciambella più o meno sottile
+        animation: {
+          onComplete: function() {
+            const chart = this;
+            const { ctx, chartArea: { top, bottom, left, right, width, height } } = chart;
     
-          ctx.save();
-          ctx.font = '16px Arial';
-          ctx.textAlign = 'center';
-          ctx.textBaseline = 'middle';
-          ctx.fillStyle = 'black';
+            ctx.save();
+            ctx.font = '16px Arial';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillStyle = 'black';
     
-          const text = "Totale risposte: 100";
-          const textX = left + width / 2;
-          const textY = top + height / 2;
+            // Frammenti di testo per l'esempio
+            const lines = [
+              { text: 'Congratulations!', color: 'white' },
+              { text: 'You passed the exam.', color: 'blue' },
+              { text: 'We\'ll send you the certificates', color: 'white' },
+              { text: 'in a few minutes.', color: 'white' },
+              { text: 'Check your email (including', color: 'white' },
+              { text: 'promotions/spam folder)', color: 'white' }
+            ];
     
-          ctx.fillText(text, textX, textY);
-          ctx.restore();
-        }
-      },
-      plugins: {
-        legend: {
-          position: ''
+            // Calcola l'altezza totale del testo
+            const lineHeight = 24; // altezza per linea, include spazio tra linee
+            const totalHeight = lines.length * lineHeight;
+    
+            // Posizione iniziale Y per centrare il testo
+            const startY = top + (height - totalHeight) / 2;
+    
+            // Disegna ogni linea con il suo colore specifico
+            lines.forEach((line, i) => {
+              const lineY = startY + i * lineHeight;
+              ctx.fillStyle = line.color;  // Imposta il colore del testo per la linea corrente
+              ctx.fillText(line.text, left + width / 2, lineY);
+            });
+    
+            ctx.restore();
+          }
+        },
+        plugins: {
+          legend: {
+            position: ''
+          }
         }
       }
     };
-  
+    
+    
         
     
     const canvasGrafico = document.getElementById('graficoRisultati').getContext('2d');
   
     
-    new Chart(canvasGrafico, {
-      type: 'doughnut',
-      data: data,
-      options: options
-    });
+    new Chart(canvasGrafico, config)
 
     document.getElementById('quiz').style.display = 'none';
   
