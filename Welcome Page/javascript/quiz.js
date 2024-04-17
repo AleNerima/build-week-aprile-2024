@@ -120,7 +120,7 @@ function mostraDomanda() {
   }
 
   const domandaCorrente = questions[indiceCorrente];
-  divNumeroDomande.innerHTML = `${indiceCorrente + 1}/${questions.length}`
+  divNumeroDomande.innerHTML = `<p id="numDom">Question ${indiceCorrente + 1} <span class="question_span">/ ${questions.length}</span></p>`
   domandaElement.innerHTML = `${domandaCorrente.question}`;
   caricaRisposte();
 }
@@ -216,6 +216,23 @@ const centerTextPlugin = {
 
 
 function mostraRisultati() {
+
+   // Nascondi il timer
+   document.getElementById("timer").style.display = 'none';
+   // Nascondi il numero delle domande
+   document.getElementById("myDiv").style.display = 'none';
+ 
+   // Disabilita il timer
+   clearInterval(timerInterval);
+ 
+   // Disabilita i pulsanti di risposta
+   risposteButtons.forEach(button => {
+     button.disabled = true;
+   });
+ 
+   // Disabilita il pulsante "Prossima domanda"
+   prossimaButton.disabled = true;
+
   const totaleDomande = questions.length;
   const risposteCorrette = giuste.length;
   const risposteSbagliate = sbagliate.length;
@@ -230,6 +247,7 @@ function mostraRisultati() {
    <div id="incorrette"><p>Risposte sbagliate: ${risposteSbagliate} (${percentualeSbagliate.toFixed(2)}%)</p>
    </div>
    `;
+    document.getElementById("feedback-btn").style.display = 'block';
     document.getElementById('quiz').style.display = 'none';
     document.getElementById("timer").style.display = 'none';
     window.onload=document.getElementById('bottone_risultati').style.display = 'none';
@@ -299,4 +317,3 @@ function mostraRisultati() {
   // Mostra i risultati
   document.getElementById('risultati').innerHTML = risultatiHTML;
 }
-
