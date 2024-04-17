@@ -328,10 +328,19 @@ function mostraRisultati() {
         plugins: {
           legend: {
             position: ''
-          }
+          },
+          title: {
+            display: true,
+            text: 'Results', // Testo del titolo del grafico
+            font: {
+              size: 20, // Dimensione del carattere del titolo
+              family: 'Rubik', // Font del titolo
+              weight: 'bold' // Grassetto del titolo
+            }
         }
       }
-    };
+    }
+  }
     
     const canvasGrafico = document.getElementById('graficoRisultati').getContext('2d');
     
