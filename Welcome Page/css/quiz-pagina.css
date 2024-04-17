@@ -189,3 +189,25 @@ header img{
 #incorrette{
 margin-left: 200px;
 }
+
+
+
+
+
+#feedback-btn{
+  float: center;
+  width: 15em;
+  height: 3.5em;
+  background: none;
+  color: rgb(255, 255, 255, 0.7);
+  border: 1px solid rgb(255, 255, 255, 0.7);
+  margin-top: 100px;
+  margin-left: 70px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 0;
+}
+#feedback-btn:hover{
+  background-color: blueviolet;
+}
