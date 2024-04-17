@@ -305,7 +305,7 @@ function mostraRisultati() {
             } else {
               lines = [
                 { text: "Sorry,", color: 'red', font:'18px Rubik', fontWeight: 'bold'},
-                { text: "you didn't pass the exam...!!", color: 'red', font:'18px Rubik', fontWeight: 'bold'},
+                { text: "you didn't pass the exam...!!", color: 'red', font:'16px Rubik', fontWeight: 'bold'},
                 { text: ""},
                 { text: 'We\'ll not send you the certificate.', color: 'white', font:'normal 15px Rubik' },
               ];
