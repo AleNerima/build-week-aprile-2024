@@ -207,7 +207,8 @@ margin-left: 200px;
   font-size: 13px;
   font-weight: 600;
   padding: 0;
+  box-shadow: 0px 0px 15px #00ffff46;
 }
 #feedback-btn:hover{
-  background-color: blueviolet;
+  background-color: rgba(137, 43, 226, 0.37);
 }
