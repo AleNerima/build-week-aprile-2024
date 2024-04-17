@@ -40,7 +40,11 @@ p{
     font-size: 1.4em;
     margin-top: 3em;
 }
-  
+
+.star-rating {
+  padding-left: 2em;
+  margin-top: 1em;
+}
   .feedback-container label {
     display: block;
     margin-bottom: 5px; 
