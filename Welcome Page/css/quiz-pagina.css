@@ -30,7 +30,7 @@ body{
   
   .base-timer__path-elapsed {
     stroke-width: 10px;
-    stroke: grey;
+    stroke: #d1d4db;
   }
   
   .base-timer__path-remaining {
@@ -44,7 +44,7 @@ body{
   }
   
   .base-timer__path-remaining.green {
-    color: #00FFFF;
+    color: #9b1d8d;
   }
   
   .base-timer__path-remaining.orange {
