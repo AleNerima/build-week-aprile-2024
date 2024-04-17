@@ -34,7 +34,7 @@ const questions = [
       type: "boolean",
       difficulty: "easy",
       question:
-        "Pointers were not used in the original C programming language; they were added later on in C++.",
+        "Pointers were not used in the original C programming language; <br>they were added later on in C++.",
       correct_answer: "False",
       incorrect_answers: ["True"],
     },
@@ -250,9 +250,8 @@ function mostraRisultati() {
     document.getElementById('quiz').style.display = 'none';
     document.getElementById("timer").style.display = 'none';
     window.onload=document.getElementById('bottone_risultati').style.display = 'none';
-    document.getElementById("testoSinistra").textContent = `Risposte corrette: ${risposteCorrette}/${totaleDomande} (${percentualeCorrette.toFixed(2)}%)`;
-    document.getElementById("testoDestra").textContent = `Risposte sbagliate: ${risposteSbagliate}/${totaleDomande} (${percentualeSbagliate.toFixed(2)}%)`; // Creazione del dataset per il grafico a torta
-    
+    document.getElementById("testoSinistra").innerHTML = `<p style="font-size: 60px;margin:0;text-align:left;">CORRECT ${percentualeCorrette.toFixed(2)}%</p><p style="font-size: 23px;margin:0;text-align:left;">${risposteCorrette}/${totaleDomande}&nbsp;questions</p>`;
+    document.getElementById("testoDestra").innerHTML = `<p style="font-size: 60px;margin:0;text-align:right;">WRONG ${percentualeSbagliate.toFixed(2)}%</p><p style="font-size: 23px;margin:0;text-align:right;">${risposteSbagliate}/${totaleDomande}&nbsp;questions</p>`;
     // Grafico
     const data = {
       labels: ["Risposte Corrette", "Risposte Sbagliate"],
@@ -305,11 +304,14 @@ function mostraRisultati() {
               ];
             } else {
               lines = [
-                { text: "Sorry, you didn\'t pass the exam.", color: 'red', font:'20px Rubik', fontWeight: 'bold'}
+                { text: "Sorry,", color: 'red', font:'18px Rubik', fontWeight: 'bold'},
+                { text: "you didn't pass the exam...!!", color: 'red', font:'18px Rubik', fontWeight: 'bold'},
+                { text: ""},
+                { text: 'We\'ll not send you the certificate.', color: 'white', font:'normal 15px Rubik' },
               ];
             }
     
-            const lineHeight = 24; 
+            const lineHeight = 25; 
             const totalHeight = lines.length * lineHeight;
             const startY = top + (height - totalHeight) / 2;
     

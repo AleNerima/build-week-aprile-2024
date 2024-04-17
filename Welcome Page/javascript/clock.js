@@ -40,7 +40,11 @@ document.getElementById("timer").innerHTML = `
 
 function onTimesUp() {
   clearInterval(timerInterval);
-  prossimaDomanda();
+  if (indiceCorrente === questions.length - 1) {
+    mostraRisultati();
+  } else {
+    prossimaDomanda();
+  }
 }
 
 function startTimer() {
@@ -67,7 +71,7 @@ function formatTime(time) {
     seconds = `0${seconds}`;
   }
 
-  return `${minutes}:${seconds}`;
+  return `<div style ="text-align:center;line-height:0.2em"><p>Mancano</p><p style="font-size:1.6em">${seconds}</p><p>Secondi</p></div>` ;
 }
 
 function setRemainingPathColor(timeLeft) {
