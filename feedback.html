@@ -17,46 +17,49 @@
     <p>From 0 to 10, how likely are you to recommend EPICODE
         to a friend or a colleague?</p>
         <div class="star-rating" data-rating="0">
-          <div class="star-rating" data-rating="0">
-            <img src="./Welcome Page/assets/star.svg" alt="Stella vuota" class="star" data-index="1">
-            <img src="./Welcome Page/assets/star.svg" alt="Stella vuota" class="star" data-index="2">
-            <img src="./Welcome Page/assets/star.svg" alt="Stella vuota" class="star" data-index="3">
-            <img src="./Welcome Page/assets/star.svg" alt="Stella vuota" class="star" data-index="4">
-            <img src="./Welcome Page/assets/star.svg" alt="Stella vuota" class="star" data-index="5">
-            <img src="./Welcome Page/assets/star.svg" alt="Stella vuota" class="star" data-index="6">
-            <img src="./Welcome Page/assets/star.svg" alt="Stella vuota" class="star" data-index="7">
-            <img src="./Welcome Page/assets/star.svg" alt="Stella vuota" class="star" data-index="8">
-            <img src="./Welcome Page/assets/star.svg" alt="Stella vuota" class="star" data-index="9">
-            <img src="./Welcome Page/assets/star.svg" alt="Stella vuota" class="star" data-index="10">
-          </div>          
+            <img src="./Welcome Page/assets/star.svg" alt="Stella vuota" class="star" data-index="1" onclick="selectStar(1)">
+            <img src="./Welcome Page/assets/star.svg" alt="Stella vuota" class="star" data-index="2" onclick="selectStar(2)">
+            <img src="./Welcome Page/assets/star.svg" alt="Stella vuota" class="star" data-index="3" onclick="selectStar(3)">
+            <img src="./Welcome Page/assets/star.svg" alt="Stella vuota" class="star" data-index="4" onclick="selectStar(4)">
+            <img src="./Welcome Page/assets/star.svg" alt="Stella vuota" class="star" data-index="5" onclick="selectStar(5)">
+            <img src="./Welcome Page/assets/star.svg" alt="Stella vuota" class="star" data-index="6" onclick="selectStar(6)">
+            <img src="./Welcome Page/assets/star.svg" alt="Stella vuota" class="star" data-index="7" onclick="selectStar(7)">
+            <img src="./Welcome Page/assets/star.svg" alt="Stella vuota" class="star" data-index="8" onclick="selectStar(8)">
+            <img src="./Welcome Page/assets/star.svg" alt="Stella vuota" class="star" data-index="9" onclick="selectStar(9)">
+            <img src="./Welcome Page/assets/star.svg" alt="Stella vuota" class="star" data-index="10" onclick="selectStar(10)">
         </div>
     <p>Leave us an open feedback about your experience so far</p>
     <div class="feedback-container">
       <label for="feedback-input"></label>
-      <input type="text" id="feedback-input" class="feedback-input" placeholder="Write your comment here...">
+      <input type="text" id="feedback-input" class="feedback-input" placeholder="Write your comment here..." oninput="checkInputs()">
     </div>
     <script>
-document.addEventListener('DOMContentLoaded', function() {
-  const stars = document.querySelectorAll('.star');
-  
-  stars.forEach(star => {
-    star.addEventListener('click', function() {
-      const rating = parseInt(star.getAttribute('data-index'));
-      
-      stars.forEach((s, index) => {
-        if (index < rating) {
-          s.classList.add('active');
-        } else {
-          s.classList.remove('active');
-        }
-      });
-      
-      star.parentNode.setAttribute('data-rating', rating);
-    });
-  });
-});
-    </script>
-    <button onclick="alert('Grazie del feedback &hearts;')" id="moreInfo">MORE INFO</button>
+      let selectedStar = 0;
 
+      function selectStar(index) {
+        selectedStar = index;
+        const stars = document.querySelectorAll('.star');
+        stars.forEach((star, i) => {
+          if (i < index) {
+            star.classList.add('active');
+          } else {
+            star.classList.remove('active');
+          }
+        });
+        checkInputs();
+      }
+
+      function checkInputs() {
+        const feedbackInput = document.getElementById('feedback-input');
+        const moreInfoBtn = document.getElementById('moreInfo');
+
+        if (selectedStar > 0 && feedbackInput.value.trim() !== '') {
+          moreInfoBtn.disabled = false;
+        } else {
+          moreInfoBtn.disabled = true;
+        }
+      }
+    </script>
+    <button onclick="alert('Grazie del feedback &hearts;')" id="moreInfo" disabled>MORE INFO</button>
 </body>
 </html>
