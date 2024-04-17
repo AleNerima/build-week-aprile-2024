@@ -311,7 +311,7 @@ function mostraRisultati() {
               ];
             }
     
-            const lineHeight = 25; 
+            const lineHeight = 22; 
             const totalHeight = lines.length * lineHeight;
             const startY = top + (height - totalHeight) / 2;
     
