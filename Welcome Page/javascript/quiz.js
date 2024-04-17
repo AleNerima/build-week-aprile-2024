@@ -331,12 +331,13 @@ function mostraRisultati() {
           },
           title: {
             display: true,
-            text: 'Results', // Testo del titolo del grafico
+            text: 'Results',
             font: {
-              size: 20, // Dimensione del carattere del titolo
-              family: 'Rubik', // Font del titolo
-              weight: 'bold' // Grassetto del titolo
-            }
+              size: 60, 
+              family: 'Rubik', 
+              weight: 'bold', 
+              },
+              color: '#C2C2C2',
         }
       }
     }
