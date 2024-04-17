@@ -265,6 +265,11 @@ function mostraRisultati() {
         hoverOffset: 4
       }]
     };
+
+    document.getElementById("feedback-btn").addEventListener("click", function() {
+      // Reindirizza l'utente alla pagina desiderata
+      window.location.href = "feedback.html";
+  });
   
     
     const config = {
