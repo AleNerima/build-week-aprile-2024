@@ -196,6 +196,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 /***********************************funzioni risultati****************************/
+const centerTextPlugin = {
+  id: 'centerText',
+  afterDraw: function(chart) {
+    const ctx = chart.ctx;
+    ctx.save();
+    ctx.font = '16px Arial';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    const centerX = (chart.chartArea.left + chart.chartArea.right) / 2;
+    const centerY = (chart.chartArea.top + chart.chartArea.bottom) / 2;
+    const risposteCorrette = giuste.length;
+    const totaleDomande = questions.length;
+    const text = `${risposteCorrette} di ${totaleDomande}`;
+    ctx.fillText(text, centerX, centerY);
+    ctx.restore();
+  }
+};
+
+
 function mostraRisultati() {
   const totaleDomande = questions.length;
   const risposteCorrette = giuste.length;
@@ -214,7 +233,8 @@ function mostraRisultati() {
     document.getElementById('quiz').style.display = 'none';
     document.getElementById("timer").style.display = 'none';
     window.onload=document.getElementById('bottone_risultati').style.display = 'none';
-    // Creazione del dataset per il grafico a torta
+    document.getElementById("testoSinistra").textContent = `Risposte corrette: ${risposteCorrette}/${totaleDomande} (${percentualeCorrette.toFixed(2)}%)`;
+    document.getElementById("testoDestra").textContent = `Risposte sbagliate: ${risposteSbagliate}/${totaleDomande} (${percentualeSbagliate.toFixed(2)}%)`; // Creazione del dataset per il grafico a torta
     const data = {
       labels: ["Risposte Corrette", "Risposte Sbagliate"],
       datasets: [{
@@ -229,24 +249,35 @@ function mostraRisultati() {
     };
   
     
-    const options = {
+     const options = {
       responsive: true,
-      plugins: {
-        legend: {
-          display: true,
-          position: 'bottom'
-        },
-        title: {
-          display: true,
-          text: 'Risultati del Quiz'
+      animation: {
+        onComplete: function() {
+          const chart = this;
+          const { ctx, chartArea: { top, bottom, left, right, width, height } } = chart;
+    
+          ctx.save();
+          ctx.font = '16px Arial';
+          ctx.textAlign = 'center';
+          ctx.textBaseline = 'middle';
+          ctx.fillStyle = 'black';
+    
+          const text = "Totale risposte: 100";
+          const textX = left + width / 2;
+          const textY = top + height / 2;
+    
+          ctx.fillText(text, textX, textY);
+          ctx.restore();
         }
       },
-      cutout: '70%', // Imposta la percentuale di "taglio" per trasformare il grafico a torta in una ciambella
-      layout: {
-        padding: 10 // Aggiungi spazio di riempimento per una migliore leggibilità
+      plugins: {
+        legend: {
+          position: ''
+        }
       }
     };
   
+        
     
     const canvasGrafico = document.getElementById('graficoRisultati').getContext('2d');
   
@@ -268,3 +299,4 @@ function mostraRisultati() {
   // Mostra i risultati
   document.getElementById('risultati').innerHTML = risultatiHTML;
 }
+

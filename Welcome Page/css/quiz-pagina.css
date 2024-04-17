@@ -189,3 +189,19 @@ header img{
 #incorrette{
 margin-left: 200px;
 }
+
+#contenitoreGrafico {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.testo-lato {
+  flex: 1; /* Assegna spazio uguale ai div del testo */
+  padding: 20px; /* Aggiunge un po' di spazio intorno al testo */
+}
+
+#risultati {
+  flex: 2; /* Dà più spazio al grafico */
+}
