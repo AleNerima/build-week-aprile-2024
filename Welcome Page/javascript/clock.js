@@ -71,7 +71,7 @@ function formatTime(time) {
     seconds = `0${seconds}`;
   }
 
-  return `<div style ="text-align:center;line-height:0.2em"><p>Mancano</p><p style="font-size:1.6em">${seconds}</p><p>Secondi</p></div>` ;
+  return `<div style ="text-align:center;line-height:0.2em"><p>Seconds</p><p style="font-size:1.6em">${seconds}</p><p>Remainings</p></div>` ;
 }
 
 function setRemainingPathColor(timeLeft) {
