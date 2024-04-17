@@ -63,9 +63,11 @@
 
 
 body{
-    background-image: url(../assets/bg.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
+  background: rgb(12,17,59);
+  background: -moz-linear-gradient(90deg, rgba(12,17,59,1) 0%, rgba(101,36,104,1) 100%);
+  background: -webkit-linear-gradient(90deg, rgba(12,17,59,1) 0%, rgba(101,36,104,1) 100%);
+  background: linear-gradient(90deg, rgba(12,17,59,1) 0%, rgba(101,36,104,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0c113b",endColorstr="#652468",GradientType=1);
 }
 main{
     position: absolute;
@@ -216,7 +218,10 @@ margin-left: 200px;
 }
 
 
-
+#contenitoreGrafico{
+  margin-left: 40%;
+  margin-right: 40%;
+}
 
 
 
@@ -228,7 +233,8 @@ margin-left: 200px;
   color: rgb(255, 255, 255, 0.7);
   border: 1px solid rgb(255, 255, 255, 0.7);
   margin-top: 100px;
-  margin-left: 70px;
+  margin-left: 40%;
+  margin-right: 40%;
   cursor: pointer;
   font-size: 13px;
   font-weight: 600;
