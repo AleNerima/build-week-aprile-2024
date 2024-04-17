@@ -305,7 +305,7 @@ function mostraRisultati() {
               ];
             } else {
               lines = [
-                { text: "Sorry, you didn\'t pass the exam.", color: 'white', font:'20px Rubik', fontWeight: 'bold'}
+                { text: "Sorry, you didn\'t pass the exam.", color: 'red', font:'20px Rubik', fontWeight: 'bold'}
               ];
             }
     
