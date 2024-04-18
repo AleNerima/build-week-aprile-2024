@@ -417,8 +417,8 @@ html {
   border: none;
   margin: 15px;
   width: 28em;
+  max-width: 100%;
   box-shadow: 0px -3px rgb(255, 255, 255, 0.7);
-  word-wrap: break-word;
   cursor: pointer;
   font-family: "Rubik", sans-serif;
   font-weight: 600;
