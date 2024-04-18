@@ -215,8 +215,9 @@ const centerTextPlugin = {
 };
 
 
-function mostraRisultati() {
 
+function mostraRisultati() {
+  
    // Nascondi il timer
    document.getElementById("timer").style.display = 'none';
    // Nascondi il numero delle domande
@@ -252,6 +253,31 @@ function mostraRisultati() {
     window.onload=document.getElementById('bottone_risultati').style.display = 'none';
     document.getElementById("testoSinistra").innerHTML = `<p style="font-size: 60px;margin:0;text-align:left;">CORRECT ${percentualeCorrette.toFixed(2)}%</p><p style="font-size: 23px;margin:0;text-align:left;">${risposteCorrette}/${totaleDomande}&nbsp;questions</p>`;
     document.getElementById("testoDestra").innerHTML = `<p style="font-size: 60px;margin:0;text-align:right;">WRONG ${percentualeSbagliate.toFixed(2)}%</p><p style="font-size: 23px;margin:0;text-align:right;">${risposteSbagliate}/${totaleDomande}&nbsp;questions</p>`;
+  function lanciaCoriandoli() {
+  var durata = 15 * 1000;
+  var fineAnimazione = Date.now() + durata;
+
+  (function frame() {
+    
+    confetti({
+      particleCount: 7,
+      angle: 60,
+      spread: 55,
+      origin: { x: 0 }
+    });
+    confetti({
+      particleCount: 7,
+      angle: 120,
+      spread: 55,
+      origin: { x: 1 }
+    });
+
+    if (Date.now() < fineAnimazione) {
+      requestAnimationFrame(frame);
+    }
+  }());
+}    
+
     // Grafico
     const data = {
       labels: ["Risposte Corrette", "Risposte Sbagliate"],
@@ -272,7 +298,7 @@ function mostraRisultati() {
       window.location.href = "feedback.html";
   });
   
-    
+  
     const config = {
       type: 'doughnut',
       data: data,
@@ -310,11 +336,13 @@ function mostraRisultati() {
                 { text: 'We\'ll not send you the certificate.', color: 'white', font:'normal 15px Rubik' },
               ];
             }
-    
+        
             const lineHeight = 22; 
             const totalHeight = lines.length * lineHeight;
             const startY = top + (height - totalHeight) / 2;
-    
+    if (risposteCorrette > (totaleDomande / 2)) {
+  lanciaCoriandoli();
+}
             lines.forEach((line, i) => {
               const lineY = startY + i * lineHeight;
               ctx.fillStyle = line.color;
