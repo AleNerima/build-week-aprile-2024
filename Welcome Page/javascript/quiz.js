@@ -260,16 +260,18 @@ function mostraRisultati() {
   (function frame() {
     
     confetti({
-      particleCount: 7,
+      particleCount: 10,
       angle: 60,
       spread: 55,
-      origin: { x: 0 }
+      origin: { x: 0 },
+      colors: ['#090f3b', '#65208c']
     });
     confetti({
-      particleCount: 7,
+      particleCount: 10,
       angle: 120,
       spread: 55,
-      origin: { x: 1 }
+      origin: { x: 1 },
+      colors: ['#090f3b', '#65208c']
     });
 
     if (Date.now() < fineAnimazione) {
