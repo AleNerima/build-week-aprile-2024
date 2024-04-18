@@ -8,7 +8,7 @@ const COLOR_CODES = {
   alert: { color: "red", threshold: ALERT_THRESHOLD }
 };
 
-const TIME_LIMIT = 59;
+const TIME_LIMIT = 60;
 let timePassed = 0;
 let timeLeft = TIME_LIMIT;
 let timerInterval = null;
