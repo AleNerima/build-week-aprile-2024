@@ -11,6 +11,9 @@ body{
 }
   
 /*********timer*/
+#timer{
+  height: 2em;
+}
   .base-timer {
     position: fixed;
     width: 5rem;
@@ -74,16 +77,12 @@ html{
   background: -webkit-linear-gradient(128deg, rgba(9,15,59,1) 30%, rgba(9,15,59,1) 47%, rgba(9,15,59,1) 49%, rgba(40,16,71,1) 52%, rgba(72,13,115,1) 56%, rgba(60,2,102,1) 60%, rgba(83,26,125,1) 65%, rgba(68,29,92,1) 69%, rgba(101,33,140,1) 75%, rgba(99,27,140,1) 77%, rgba(72,30,94,1) 79%, rgba(69,20,99,1) 81%, rgba(85,32,112,1) 84%, rgba(59,27,87,1) 86%, rgba(9,15,59,1) 87%, rgba(9,15,59,1) 99%, rgba(9,15,59,1) 100%);
   background: linear-gradient(128deg, rgba(9,15,59,1) 30%, rgba(9,15,59,1) 47%, rgba(9,15,59,1) 49%, rgba(40,16,71,1) 52%, rgba(72,13,115,1) 56%, rgba(60,2,102,1) 60%, rgba(83,26,125,1) 65%, rgba(68,29,92,1) 69%, rgba(101,33,140,1) 75%, rgba(99,27,140,1) 77%, rgba(72,30,94,1) 79%, rgba(69,20,99,1) 81%, rgba(85,32,112,1) 84%, rgba(59,27,87,1) 86%, rgba(9,15,59,1) 87%, rgba(9,15,59,1) 99%, rgba(9,15,59,1) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#090f3b",endColorstr="#090f3b",GradientType=1);
-  height: 100%;
-  background-repeat: no-repeat;
-  background-size: cover;
+  height: 100%; 
 }
 main{
-    position: absolute;
-    top: 50%;
-    left: 48%;
-    transform: translate(-50%, -50%);
-    color: white;
+   width: 90%;
+   margin: 2em 5% 2em 5%;
+   color: white;
 }
 header div{
   width: 8.33%;
