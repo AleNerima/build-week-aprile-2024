@@ -454,3 +454,28 @@ function mostraRisultati() {
   // Mostra i risultati
   document.getElementById("risultati").innerHTML = risultatiHTML;
 }
+/////////// FEEDBACK PAGE
+let selectedStar = 0;
+      function selectStar(index) {
+        selectedStar = index;
+        const stars = document.querySelectorAll('.star');
+        stars.forEach((star, i) => {
+          if (i < index) {
+            star.classList.add('active');
+          } else {
+            star.classList.remove('active');
+          }
+        });
+        checkInputs();
+      }
+
+      function checkInputs() {
+        const feedbackInput = document.getElementById('feedback-input');
+        const moreInfoBtn = document.getElementById('moreInfo');
+
+        if (selectedStar > 0 && feedbackInput.value.trim() !== '') {
+          moreInfoBtn.disabled = false;
+        } else {
+          moreInfoBtn.disabled = true;
+        }
+      }
