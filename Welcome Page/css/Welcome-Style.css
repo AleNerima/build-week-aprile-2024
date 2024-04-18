@@ -22,20 +22,17 @@ html{
 }
 
 #headerWelcomePage div img{
-    width: 100%;
-    height: 100%;
-    background-size: contain;
-    margin-top: 4em;
+    width: 12em;
+    margin-top: 2em;
 }
 
 #headerFeedbackPage {
     float: left;
 }
 #headerFeedbackPage img{
-    height: 2rem;
-    width: 8rem;
-    margin-top: 3em;
-    margin-left: 22em;
+    width: 12em;
+    margin-top: 2em;
+    margin-left: 5em;
 }
 .bold{
     font-weight: 800;
@@ -44,14 +41,12 @@ html{
 #headerQuizPage div{
     width: 8.33%;
     height: 3.8rem;
-    margin: auto 75.01% auto 16.66%;
   }
   
   #headerQuizPage div img{
-    width: 100%;
-    height: 100%;
-    background-size: contain;
-    margin-top: 4em;
+    width: 12em;
+    margin-top: 2em;
+    margin-left: 5em;
   }
 
   /*********timer*/
