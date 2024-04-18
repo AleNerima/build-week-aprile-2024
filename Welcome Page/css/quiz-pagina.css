@@ -18,8 +18,8 @@ body{
     position: fixed;
     width: 5rem;
     height: 3rem;
-    top: 0.2rem;
-    right: 1rem;
+    top: 10rem;
+    right: 16rem;
   }
   
   .base-timer__svg {
@@ -60,9 +60,10 @@ body{
   
   .base-timer__label {
     position: fixed;
-    width: 5.3rem;
-    height: 5.3rem;
-    top: 0;
+    width: 5rem;
+    height: 3rem;
+    top: 10.5rem;
+    right: 16rem;
     display: flex;
     align-items: center;
     justify-content: center;
