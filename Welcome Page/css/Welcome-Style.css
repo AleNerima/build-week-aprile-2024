@@ -149,16 +149,11 @@ html{
     margin-bottom: 3em;
 }
 
-#app{
-    width: 90%;
-    margin: auto 5%;
-    align-items: center;
-}
-
 #mainQuizPage {
-   width: 90%;
-   margin: 2em 5% 2em 5%;
    color: white;
+   width: 70em;
+    max-width: 100%;
+    margin: 0 auto;
 }
 
 #quiz h1{
@@ -467,5 +462,4 @@ margin-right: 40%;
 
 
 #mainWelcomePage form {margin-top: 6em;
-    
 }
