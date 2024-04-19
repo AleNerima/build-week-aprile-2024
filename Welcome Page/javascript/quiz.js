@@ -204,7 +204,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 /***********************************funzioni risultati****************************/
 
-// Questo blocco di codice gestisce le percentuali di risposte corrette e sbagliate
+// Questo blocco di codice scrive il testo del grafico dei risultati
 const centerTextPlugin = {
   id: "centerText",
   afterDraw: function (chart) {
@@ -224,6 +224,7 @@ const centerTextPlugin = {
 };
 
 //questa funzione gestisce la creazione della pagina dei risultati
+//gestisce le percentuali ottenute
 //e si occupa di creare un grafico a seconda del risultato ottenuto
 function mostraRisultati() {
   // Nascondi il timer
@@ -456,26 +457,26 @@ function mostraRisultati() {
 }
 /////////// FEEDBACK PAGE
 let selectedStar = 0;
-      function selectStar(index) {
-        selectedStar = index;
-        const stars = document.querySelectorAll('.star');
-        stars.forEach((star, i) => {
-          if (i < index) {
-            star.classList.add('active');
-          } else {
-            star.classList.remove('active');
-          }
-        });
-        checkInputs();
-      }
+function selectStar(index) {
+  selectedStar = index;
+  const stars = document.querySelectorAll(".star");
+  stars.forEach((star, i) => {
+    if (i < index) {
+      star.classList.add("active");
+    } else {
+      star.classList.remove("active");
+    }
+  });
+  checkInputs();
+}
 
-      function checkInputs() {
-        const feedbackInput = document.getElementById('feedback-input');
-        const moreInfoBtn = document.getElementById('moreInfo');
+function checkInputs() {
+  const feedbackInput = document.getElementById("feedback-input");
+  const moreInfoBtn = document.getElementById("moreInfo");
 
-        if (selectedStar > 0 && feedbackInput.value.trim() !== '') {
-          moreInfoBtn.disabled = false;
-        } else {
-          moreInfoBtn.disabled = true;
-        }
-      }
+  if (selectedStar > 0 && feedbackInput.value.trim() !== "") {
+    moreInfoBtn.disabled = false;
+  } else {
+    moreInfoBtn.disabled = true;
+  }
+}
