@@ -68,4 +68,13 @@ document.addEventListener('DOMContentLoaded', () => {
     function resetBoard() {
         [hasFlippedCard, lockBoard, firstCard, secondCard] = [false, false, null, null];
     }
+      playButton.addEventListener('click', () => {
+        if (backgroundMusic.paused) {
+            backgroundMusic.play();
+            playButton.textContent = "⏸️";
+        } else {
+            backgroundMusic.pause();
+            playButton.textContent = "▶️";
+        }
+    });
 });
