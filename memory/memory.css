@@ -107,6 +107,10 @@ h1 {
     grid-template-columns: repeat(4, 1fr);
     gap: 10px;
     margin: 20px 0;
+    padding: 40px;
+    background-color: #090f3b79;
+    border-radius: 15%;
+    box-shadow: 2px 1px 10px 15px rgb(0, 0, 0, 0.5);
 }
 
 .card {
@@ -150,12 +154,11 @@ h1 {
     background-color: #1d2f6a;
 }
 button#resetButton {
-    padding: 10px 20px;
+    padding: 10px 25px;
     font-size: 16px;
     cursor: pointer;
     background-color: #390e0e7d;
     color: wheat;
-    border: none;
     border-radius: 5px;
     margin-bottom: 20px;
 }
