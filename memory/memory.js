@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const gameContainer = document.querySelector('.memory-game');
     const resetButton = document.getElementById('resetButton');
     const icons = ['🐳', '🐙', '🐨', '🐝', '🐥', '🐢', '🐻', '🐼'];
-    let cards = [...icons, ...icons]; // Duplica gli icon per avere le coppie
+    let cards = [...icons, ...icons]; // Duplicati per avere le coppie
 
     function initializeGame() {
         gameContainer.innerHTML = ''; // Pulisci il contenitore di gioco
@@ -24,9 +24,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    initializeGame(); // Inizializza il gioco al caricamento della pagina
+    initializeGame(); // fa partire il gioco al caricamento della pagina
 
-    resetButton.addEventListener('click', initializeGame); // Aggiungi gestione del click per resettare il gioco
+    resetButton.addEventListener('click', initializeGame); // gestisce il reset del gioco 
 
     let hasFlippedCard = false;
     let lockBoard = false;
