@@ -153,7 +153,7 @@ h1 {
     transform: rotateY(180deg);
     background-color: #1d2f6a;
 }
-button#resetButton {
+button#resetButton, button {
     padding: 10px 25px;
     font-size: 16px;
     cursor: pointer;
