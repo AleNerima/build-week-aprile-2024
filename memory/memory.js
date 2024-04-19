@@ -71,10 +71,10 @@ document.addEventListener('DOMContentLoaded', () => {
       playButton.addEventListener('click', () => {
         if (backgroundMusic.paused) {
             backgroundMusic.play();
-            playButton.textContent = "⏸️";
+            playButton.textContent = "🔉";
         } else {
             backgroundMusic.pause();
-            playButton.textContent = "▶️";
+            playButton.textContent = "🔇";
         }
     });
 });
