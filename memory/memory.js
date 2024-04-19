@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const gameContainer = document.querySelector('.memory-game');
     const resetButton = document.getElementById('resetButton');
-    const icons = ['🐶', '🐱', '🐭', '🐹', '🐰', '🦊', '🐻', '🐼'];
+    const icons = ['🐳', '🐙', '🐨', '🐝', '🐥', '🐢', '🐻', '🐼'];
     let cards = [...icons, ...icons]; // Duplica gli icon per avere le coppie
 
     function initializeGame() {
